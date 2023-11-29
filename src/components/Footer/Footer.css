@@ -1,0 +1,17 @@
+.footer{
+    width: 96vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+Button{
+    padding: 15px;
+    min-width: 180px;
+    border-radius: 10px;
+    outline: rgb(23, 152, 23);
+    color: rgb(23, 152, 23);
+    border: 1px solid rgb(23, 152, 23);
+    background-color: white;
+}

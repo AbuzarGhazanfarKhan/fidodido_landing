@@ -1,0 +1,12 @@
+/* src/components/ImageGrid.css */
+.grid-item {
+    padding: 5px;
+  }
+  
+  img {
+    width: 30px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+  

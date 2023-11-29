@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import ImageGrid from './components/ImageGrid';
+import images from './images'; // Import your updated images array
+import Foorter from './components/Footer';
 
 function App() {
+
+  const importAllImages = (r) => r.keys().map(r);
+
+const images = importAllImages(require.context('./assets/images', false, /\.(png|jpe?g|svg|gif)$/));
+console.log(images);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <br />
+    <br />
+    
+    <center>  <ImageGrid images={images} /></center>
+    <Foorter/>
     </div>
   );
 }
