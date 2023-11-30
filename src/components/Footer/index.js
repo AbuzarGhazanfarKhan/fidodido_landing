@@ -30,9 +30,9 @@ function Foorter() {
         </div>
 
           <div style={{display:"flex",flexDirection:"row",gap:"10px"}}>
-            <div><img src={x_logo}  style={{width:"22px",opacity:"0"}} alt="x_logo" /></div>
-            <div><img src={x_logo} style={{width:"22px"}}  alt="x_logo" /></div>
-            <div><img src={x_logo}  style={{width:"22px",opacity:"0"}} alt="x_logo" /></div>
+            <div><img  src={x_logo}  className="icon" style={{width:"22px",opacity:"0"}} alt="x_logo" /></div>
+            <div> <a href="https://twitter.com/0xfidodido" target="_blank" rel="noopener noreferrer">  <img src={x_logo} className="icon" style={{width:"22px"}}  alt="x_logo" /></a> </div>
+            <div><img src={x_logo}  className="icon" style={{width:"22px",opacity:"0"}} alt="x_logo" /></div>
           </div>
       </div>
       </center>
