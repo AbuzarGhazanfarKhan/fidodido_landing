@@ -2,11 +2,49 @@
 .grid-item {
     padding: 5px;
   }
-  
-  img {
+  .ImgGrid{
+    max-width: 97vw;
+  }
+  /* img {
     width: 30px;
     height: auto;
     max-width: 100%;
     display: block;
-  }
+  } */
   
+  .fido {
+    position: absolute; 
+    /* top: 3%;   */
+    width:30%;
+    right:7%;
+  }
+  @media (max-width: 2160px  ) and (min-width:1920px) {
+
+    .fido{
+      /* top: 2%;   */
+      width:30%;
+    }
+    .ImgGrid{
+      max-width: 95vw;
+    }
+    .paper{
+      margin:6px;
+    }
+  }
+
+  @media (max-width: 1664px) {
+
+    .fido{}
+    .paper{
+      margin:0px;
+    }
+    }
+  @media (max-width: 1634px) {
+
+    .fido{
+      width: 40%;
+    }
+    .paper{
+      margin:0px;
+    }
+    }

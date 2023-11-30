@@ -37,24 +37,23 @@ const ImageGrid = ({ images }) => {
   // console.log(images);
   return (
     <>    
-   
-    <Grid container justifyContent={'center'} spacing={2} width={"97vw"}>
-      {images.map((image, index) => (
-        <Grid item  key={index}>
-         <Paper style={{ 
-            height: '97px', 
-            width:'78px',
-            backgroundImage: `url(${image})`, 
-            backgroundSize: 'contain', 
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat'
-          }} />
-        </Grid>
-      ))}
-       <img src={fifoDido} style={{position: 'absolute', top: "3%",width:"73vh",right:"7%"}} />
-    </Grid>
+      <Grid className='ImgGrid' container justifyContent={'center'} spacing={2}  height={"100%"} style={{position: 'relative'}}>
+        {images.map((image, index) => (
+          <Grid item  key={index}>
+           <Paper className='paper' style={{ 
+              height: '97px', 
+              width:'78px',
+              
+              backgroundImage: `url(${image})`, 
+              backgroundSize: 'contain', 
+              backgroundPosition: 'center center',
+              backgroundRepeat: 'no-repeat'
+            }} />
+          </Grid>
+        ))}
+        <img className='fido' src={fifoDido} />
+      </Grid>
     </>
-
   );
 };
 

@@ -1,3 +1,7 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap');
+
+
 .footer{
     width: 96vw;
     display: flex;
@@ -7,11 +11,16 @@
 }
 
 Button{
-    padding: 15px;
-    min-width: 180px;
+    /* min-width: 50px; */
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    padding: 15px 38px;
+    letter-spacing: 2px;
+    min-width: 225px;
     border-radius: 10px;
-    outline: rgb(23, 152, 23);
-    color: rgb(23, 152, 23);
-    border: 1px solid rgb(23, 152, 23);
+    outline: #009016;
+    color: #009016;
+    border: 1px solid #009016;
     background-color: white;
 }

@@ -16,6 +16,7 @@ console.log(images);
     <br />
     
     <center>  <ImageGrid images={images} /></center>
+    <br />
     <Foorter/>
     </div>
   );
