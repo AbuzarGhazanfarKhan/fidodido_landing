@@ -25,7 +25,7 @@ function Foorter() {
           <div>
             <img style={{ width: "200px" }} src={logo} alt="Logo" />{" "}
           </div>
-          <div style={{ marginInline: "100px" }}>
+          <div className="text" >
             {" "}
             <h2>
               777 HAND-DRAWN <br /> GENESIS CARDS
@@ -41,7 +41,7 @@ function Foorter() {
           >
             <div>
               {" "}
-              <Button
+              <Button className="journey"
                 style={{ backgroundColor: "rgb(23, 152, 23)", color: "white" }}
               >
                 {" "}
@@ -67,7 +67,7 @@ function Foorter() {
             </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "7px" }}>
             <div>
               <img
                 src={x_logo}
