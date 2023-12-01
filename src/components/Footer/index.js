@@ -23,7 +23,7 @@ function Foorter() {
         {" "}
         <div className="footer">
           <div>
-            <img style={{ width: "200px" }} src={logo} alt="Logo" />{" "}
+            <img className="logo" src={logo} alt="Logo" />{" "}
           </div>
           <div className="text" >
             {" "}

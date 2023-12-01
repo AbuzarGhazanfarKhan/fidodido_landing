@@ -9,6 +9,9 @@
     align-items: center;
     flex-direction: row;
 }
+.logo{
+    width: 190px;
+}
 
 Button{
     /* min-width: 50px; */
@@ -52,4 +55,24 @@ margin-inline: 90px;
 } */
 @media (max-width:1624px){
     .text{  margin-inline: 56px;}
+}
+@media (max-width:1501px){
+    h2{
+        font-size: 20px;
+    }
+}
+@media (max-width:1450px){
+    .logo{
+        width: 130px;
+    }
+    .footer{
+        max-width: 97vw;
+    }
+    .text{  margin-inline: 25px;}
+    h2{
+        font-size: 16px;
+    }
+    Button{
+        min-width: 200px;
+    }
 }

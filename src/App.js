@@ -9,7 +9,7 @@ function App() {
   const importAllImages = (r) => r.keys().map(r);
 
 const images = importAllImages(require.context('./assets/images', false, /\.(png|jpe?g|svg|gif)$/));
-console.log(images);
+
   return (
     <div className="App">
        <br />
