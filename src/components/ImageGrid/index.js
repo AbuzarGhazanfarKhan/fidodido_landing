@@ -32,7 +32,8 @@ import './ImageGrid.css';
 // export default ImageGrid;
 import React from 'react';
 import { Grid, Paper } from '@mui/material';
-import fifoDido from "../../assets/hanging_fidoDido/Layer 0.png"
+// import fifoDido from "../../assets/hanging_fidoDido/Layer 0.png"
+import fifoDido from "../../assets/hanging_fidoDido/fido_png.png"
 const ImageGrid = ({ images }) => {
   // console.log(images);
   return (
