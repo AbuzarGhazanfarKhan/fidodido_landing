@@ -3,23 +3,26 @@ import logo from "../../assets/Logo/fido-dido-logo.png";
 import Button from "react-bootstrap/Button";
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import "./Footer.css";
-
+import { Grid, Paper} from '@mui/material';
+import { useMediaQuery } from 'react-responsive';
 import waitlist from '@zootools/waitlist-js'
 
 
 function Foorter() {
 
+  const isMobile = useMediaQuery({query:'(max-width:600px)'});
   const clickPopup = (event) => {
     event.preventDefault();
   
     // Pass your waitlist ID
     waitlist.openPopup("EI7h0QshP1hLQy11sdy4")
   }
-
+  const isTablet = useMediaQuery({ query: "(max-width:821px)" });
 
   return (
     <>
-      <center>
+    
+    {!isMobile  && <center>
         {" "}
         <div className="footer">
           <div>
@@ -35,8 +38,8 @@ function Foorter() {
             style={{
               display: "flex",
               flexDirection: "row",
-              gap: "49px",
-              marginInline: "28px",
+              gap: isTablet?"9px": "49px",
+              marginInline:isTablet?"9px": "28px",
             }}
           >
             <div>
@@ -102,7 +105,9 @@ function Foorter() {
             </div>
           </div>
         </div>
-      </center>
+      </center>}
+
+
     </>
   );
 }

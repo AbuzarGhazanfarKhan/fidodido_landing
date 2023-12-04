@@ -13,7 +13,7 @@
     width: 190px;
 }
 
-Button{
+.footer Button{
     /* min-width: 50px; */
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
@@ -33,7 +33,7 @@ Button{
     transition: all 0.5s ease;
     /* box-shadow:2px 2px 10px #009016 ; */
 }
-Button:hover{
+.footer Button:hover{
     box-shadow: 3px 6px 14px 0px #009016;
 }
 .icon{
@@ -75,4 +75,22 @@ margin-inline: 90px;
     Button{
         min-width: 200px;
     }
+}
+
+
+@media (max-width:821px){
+    .footer Button{
+        max-width: 100px;
+        min-width: 120px;
+        gap: 5px;
+        font-weight: normal;
+        font-size: 12px;
+    }
+    .text{
+        margin-inline: 20px;
+    }
+    h2{
+        font-size: 12px;
+    }
+
 }
