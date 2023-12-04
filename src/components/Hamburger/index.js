@@ -47,7 +47,8 @@ const HamburgerMenu = () => {
             style={{
               display: "flex",
              flexDirection: "column",
-             alignItems:"center"
+             alignItems:"center",
+             marginBlock:"30px"
             //   gap: "49px",
             //   marginInline: "28px",
             }}

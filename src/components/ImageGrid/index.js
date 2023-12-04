@@ -48,7 +48,7 @@ console.log(mobileImages);
       </Grid>
       <Grid item xs={4}>
        <a   href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
-                target="_blank"> <Button className='Button'  style={{minWidth:"89px",fontSize:"10px"}} > FAQs </Button></a>
+                target="_blank"> <Button className='Button'  style={{minWidth:"92px",fontSize:"8px"}} > FAQs </Button></a>
       </Grid>
     </Grid>
     :   <Grid className='ImgGrid' container justifyContent={'center'} spacing={2}  height={"100%"} style={{position: 'relative'}}>
