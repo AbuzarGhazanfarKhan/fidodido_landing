@@ -131,7 +131,7 @@ const HamburgerMenu = () => {
         open={isOpen} 
         onClose={toggleDrawer(false)}
         PaperProps={{
-          style: { height: '50vh', backgroundColor: '#009016' }
+          style: { height: '50vh', backgroundColor: '#009016',marginLeft:"20px",marginTop:"40px" }
         }}
       >
         {list()}
