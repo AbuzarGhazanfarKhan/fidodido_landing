@@ -9,7 +9,7 @@ import { useMediaQuery } from "react-responsive";
 import "./App.css";
 function App() {
   const isMobile = useMediaQuery({ query: "(max-width:600px)" });
-  const isTablet = useMediaQuery({ query: "(max-width:821px)" });
+  const isTablet = useMediaQuery({ minWidth:"601px",maxWidth:"821px" });
   const importAllImages = (r) => r.keys().map(r);
 
   const images = importAllImages(
@@ -21,6 +21,7 @@ function App() {
   return (
     <div className="App">
       {isMobile && (
+        <>
         <div
           style={{
             display: "flex",
@@ -33,8 +34,14 @@ function App() {
           <Hamburger />{" "}
           <img className="logoMob" width={"200px"} src={logo} alt="Logo" />{" "}
         </div>
+       
+       <center> <h1 style={{fontSize:"20px",marginTop:"22px"}}>
+        777 HAND-DRAWN GENESIS CARDS
+      </h1>
+      </center>
+      </>
       )}
-      {isTablet && !isMobile && (
+      {isTablet && (
         <div
           style={{
             display: "flex",
@@ -49,7 +56,7 @@ function App() {
         </div>
       )}
       <br />
-      <br />
+    
 
       <center>
         {" "}

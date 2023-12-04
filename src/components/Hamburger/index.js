@@ -81,14 +81,7 @@ const HamburgerMenu = () => {
             </div>
           </div>
           <center> <div >
-            <div>
-              <img
-                src=""
-                className="icon"
-                style={{ width: "28px", opacity: "0" }}
-                alt="x_logo"
-              />
-            </div>
+            
             <div style={{display:"flex",justifyContent:"center"}}>
               {" "}
               <a
@@ -103,7 +96,15 @@ const HamburgerMenu = () => {
                   style={{ width: "28px" }}
                   alt="x_logo"
                 /> 
-              </a>{" "} <span style={{color:"white",paddingLeft:"5px"}}> Twitter</span>
+              </a>{" "} 
+            </div>
+            <div>
+              <img
+                src=""
+                className="icon"
+                style={{ width: "28px", opacity: "0" }}
+                alt="x_logo"
+              />
             </div>
             <div>
               <img
@@ -129,7 +130,7 @@ const HamburgerMenu = () => {
         open={isOpen} 
         onClose={toggleDrawer(false)}
         PaperProps={{
-          style: { height: '40vh', backgroundColor: '#009016' }
+          style: { height: '50vh', backgroundColor: '#009016' }
         }}
       >
         {list()}

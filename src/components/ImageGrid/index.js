@@ -41,14 +41,14 @@ console.log(mobileImages);
       <br />
       <br />
       <Grid item xs={4}>
-        <Button  className='Button' style={{minWidth:"96px",fontSize:"10px",backgroundColor:"#009016",color:"white"}} >Start Journey</Button>
+        <Button  className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} >Start Journey</Button>
       </Grid>
       <Grid item xs={4}>
-        <Button  className='Button' style={{minWidth:"96px",fontSize:"10px"}} onClick={clickPopup}>Join The Club</Button>
+        <Button  className='Button' style={{minWidth:"76px",fontSize:"8px"}} onClick={clickPopup}>Join The Club</Button>
       </Grid>
       <Grid item xs={4}>
        <a   href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
-                target="_blank"> <Button className='Button'  style={{minWidth:"96px",fontSize:"10px"}} > FAQs </Button></a>
+                target="_blank"> <Button className='Button'  style={{minWidth:"89px",fontSize:"10px"}} > FAQs </Button></a>
       </Grid>
     </Grid>
     :   <Grid className='ImgGrid' container justifyContent={'center'} spacing={2}  height={"100%"} style={{position: 'relative'}}>
