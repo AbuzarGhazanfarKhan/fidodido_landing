@@ -34,7 +34,7 @@ function App() {
           <img className="logoMob" width={"200px"} src={logo} alt="Logo" />{" "}
         </div>
       )}
-      {isTablet && (
+      {isTablet && !isMobile && (
         <div
           style={{
             display: "flex",
