@@ -6,6 +6,7 @@ import fifoDido from "../../assets/hanging_fidoDido/fido_png.png"
 import { useMediaQuery } from 'react-responsive';
 import Button from "react-bootstrap/Button";
 import waitlist from '@zootools/waitlist-js'
+import Countdown from "../Countdown"
 
 const ImageGrid = ({ images,mobileImages }) => {
   const clickPopup = (event) => {
@@ -41,7 +42,7 @@ console.log(mobileImages);
       <br />
       <br />
       <Grid item xs={4}>
-        <Button  className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} >Start Journey</Button>
+        <Button  className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} ><Countdown/></Button>
       </Grid>
       <Grid item xs={4}>
         <Button  className='Button' style={{minWidth:"76px",fontSize:"8px"}} onClick={clickPopup}>Join The Club</Button>
