@@ -2,11 +2,16 @@ import React,{useState} from "react";
 import logo from "../../assets/Logo/fido-dido-logo.png";
 import Button from "react-bootstrap/Button";
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
+import discord_logo from "../../assets/Logo/discord-mark-blue.png";
 import "./Footer.css";
 import { Grid, Paper} from '@mui/material';
 import { useMediaQuery } from 'react-responsive';
 import waitlist from '@zootools/waitlist-js'
-// import Countdown from 'react-countdown';
+import opensea from "../../assets/Logo/Opensea NFT Marketplace.png"
+import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+
 import Countdown from "../Countdown"
 function Foorter() {
   // const [isExpired, setIsExpired] = useState(false);
@@ -14,7 +19,8 @@ function Foorter() {
   // const renderer = ({  hours, minutes, seconds, completed }) => {
   //   if (completed) {
   //     setIsExpired(true);
-  //     return <> START JOURNEY </>;
+  //     return <> Phase II 
+// Cooking </>;
   //   } else {
   //     return <>{hours}  : {minutes}  : {seconds} </>;
   //   }
@@ -28,7 +34,7 @@ function Foorter() {
     waitlist.openPopup("EI7h0QshP1hLQy11sdy4")
   }
   const isTablet = useMediaQuery({ query: "(max-width:821px)" });
-
+  let navigate = useNavigate();
   return (
     <>
     
@@ -54,13 +60,15 @@ function Foorter() {
           >
             <div>
               {" "}
-              <Button className="journey"
-                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white" }}
+             <a > <Button disabled className=" rotate-button journey"
+                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"not-allowed" }}
+                
               >
                 {" "}
                 {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
              <Countdown/>
               </Button>{" "}
+              </a>
             </div>
             <div>
               {" "}
@@ -81,14 +89,16 @@ function Foorter() {
             </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "row", gap: "7px" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "7px",alignItems:"center" }}>
             <div>
+              <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
               <img
-                src={x_logo}
+                src={opensea}
                 className="icon"
-                style={{ width: "38px", opacity: "0" }}
+                style={{ width: "38px" }}
                 alt="x_logo"
               />
+              </a>
             </div>
             <div>
               {" "}
@@ -107,17 +117,24 @@ function Foorter() {
               </a>{" "}
             </div>
             <div>
+            <a
+                href="https://discord.gg/f3xTsPnsqN"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
               <img
-                src={x_logo}
+                src={discord_logo}
                 className="icon"
-                style={{ width: "38px", opacity: "0" }}
-                alt="x_logo"
+                style={{ width: "38px"}}
+                alt="discord_logo"
               />
+              </a>
             </div>
           </div>
         </div>
       </center>}
 
+<button onClick={navigate("/walletChecker")}>Wallet Checker</button>
 
     </>
   );

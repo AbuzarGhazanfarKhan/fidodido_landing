@@ -7,6 +7,10 @@ import { useMediaQuery } from 'react-responsive';
 import Button from "react-bootstrap/Button";
 import waitlist from '@zootools/waitlist-js'
 import Countdown from "../Countdown"
+// import opensea from "../../assets/Logo/Opensea NFT Marketplace.svg"
+
+
+
 
 const ImageGrid = ({ images,mobileImages }) => {
   const clickPopup = (event) => {
@@ -18,8 +22,7 @@ const ImageGrid = ({ images,mobileImages }) => {
 
   const isMobile = useMediaQuery({query:'(max-width:600px)'});
 
-console.log(isMobile);
-console.log(mobileImages);
+
   return (
     <>    
 
@@ -42,7 +45,7 @@ console.log(mobileImages);
       <br />
       <br />
       <Grid item xs={4}>
-        <Button  className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} ><Countdown/></Button>
+       <a  > <Button disabled className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} ><Countdown/></Button></a>
       </Grid>
       <Grid item xs={4}>
         <Button  className='Button' style={{minWidth:"76px",fontSize:"8px"}} onClick={clickPopup}>Join The Club</Button>
@@ -68,6 +71,8 @@ console.log(mobileImages);
      ))}
     <img className='fido' src={fifoDido} />
       </Grid>} 
+
+    { isMobile &&  <center>  <br /> <a href="https://t.co/uIw2DPr9UF" title="Buy on OpenSea" target="_blank"><img style={{width:"120px", borderRadius:"5px", boxShadow: "0px 1px 6px rgba(0, 0, 0, 0.25)"}} src="https://storage.googleapis.com/opensea-static/Badge/Badge%20-%20Available%20On%20-%20Light.png" alt="Available on OpenSea" /></a></center>}
     </>
   );
 };

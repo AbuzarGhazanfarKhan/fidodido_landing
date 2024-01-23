@@ -3,9 +3,13 @@ import { Drawer, List, ListItemButton, IconButton } from '@mui/material';
 import { IoMenu } from "react-icons/io5";
 import logo from "../../assets/Logo/fido-dido-logo.png";
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
+import discord_logo from "../../assets/Logo/discord-mark-black.png";
 import Button from "react-bootstrap/Button";
 import waitlist from '@zootools/waitlist-js'
 import { AiOutlineClose } from "react-icons/ai";
+import opensea from "../../assets/Logo/Opensea NFT Marketplace.png"
+
+
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,9 +61,11 @@ const HamburgerMenu = () => {
               {" "}
               <div 
                 style={{width:"100%",marginBottom:"5px",color:"white"}} 
+                 
               >
                 {" "}
-                START JOURNEY{" "}
+                Phase II 
+Cooking{" "}
               </div>{" "}
             </div>
             <div>
@@ -81,7 +87,7 @@ const HamburgerMenu = () => {
               </a>
             </div>
           </div>
-          <center> <div >
+          <center> <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"10px"}}>
             
             <div style={{display:"flex",justifyContent:"center"}}>
               {" "}
@@ -100,20 +106,28 @@ const HamburgerMenu = () => {
               </a>{" "} 
             </div>
             <div>
+            <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
               <img
-                src=""
+                src={opensea}
                 className="icon"
-                style={{ width: "28px", opacity: "0" }}
+                style={{ width: "30px" }}
                 alt="x_logo"
               />
+              </a>
             </div>
             <div>
+            <a
+                href="https://discord.gg/f3xTsPnsqN"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
               <img
-                src=""
+                src={discord_logo}
                 className="icon"
-                style={{ width: "28px", opacity: "0" }}
-                alt="x_logo"
+                style={{ width: "38px"}}
+                alt="discord_logo"
               />
+              </a>
             </div>
           </div>
           </center>
