@@ -27,7 +27,7 @@
 // export default images;
 // src/images/index.js
 const images = [];
-const imageFiles = [];
+// const imageFiles = [];
 
 const importAll = (r) => {
   return r.keys().map((filename) => ({
@@ -38,7 +38,7 @@ const importAll = (r) => {
 
 try {
   const importedImages = importAll(
-    require.context("../assets/images", false, /\.(png|gif)$/)
+    require.context("../assets/images", false, /\.(png|gif|webp)$/)
   );
 
   // Assuming a 17x7 grid

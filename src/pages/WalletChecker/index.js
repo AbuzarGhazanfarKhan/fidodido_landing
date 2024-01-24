@@ -11,16 +11,16 @@ function WalletChecker() {
   };
     const importAllImages = (r) => r.keys().map(r);
     const images = importAllImages(
-        require.context("../../assets/Links", false, /\.(png|jpe?g|svg|gif)$/)
+        require.context("../../assets/Links", false, /\.(png|jpe?g|svg|gif|webp)$/)
       );
       console.log(images);
   return (
     <div style={{background:"black"}}>
-    <div class="grid-container">
+    <div className="grid-container">
     {images.map((image, index) => (
 
 
-<div class="grid-item"> <img src={image} height={"120px"} width={"120px"} alt={`image ${index}`}/></div>
+<div className="grid-item"> <img src={image} height={"120px"} width={"120px"} alt={`image ${index}`}/></div>
     ))}
     </div>
 {/* <center>
