@@ -1,5 +1,5 @@
 import React from 'react'
-import mintPage_rotation from "../../assets/gifs/mintPage_rotation.gif"
+import mintPage_rotation from "../../assets/gifs/Mint_Gif.webp"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import logo from "../../assets/Logo/fido-dido-logo-white.png";
 import icon1 from "../../assets/mintPageIcons/mintIcon1.png";
