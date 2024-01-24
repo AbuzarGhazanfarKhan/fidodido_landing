@@ -1,6 +1,7 @@
 import {  Route,Routes } from "react-router-dom";
 import MainPage from './pages/MainPage'
 import WalletChecker from './pages/WalletChecker'
+import MintPage from "./pages/MintPage";
 
 export const Router= ()=>{
 return (
@@ -10,6 +11,7 @@ return (
                
          
             <Route path='/walletChecker' element={<WalletChecker/>} /> 
+            <Route path='/mint' element={<MintPage/>} /> 
                 
            
         </Routes>

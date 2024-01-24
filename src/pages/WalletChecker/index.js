@@ -15,7 +15,7 @@ function WalletChecker() {
       );
       console.log(images);
   return (
-    <>
+    <div style={{background:"black"}}>
     <div class="grid-container">
     {images.map((image, index) => (
 
@@ -23,7 +23,7 @@ function WalletChecker() {
 <div class="grid-item"> <img src={image} height={"120px"} width={"120px"} alt={`image ${index}`}/></div>
     ))}
     </div>
-<center>
+{/* <center>
     <div className="search-bar">
  <h1 style={{color:"white"}}>Let's See If You Can Mint</h1>
  <div className="input-wrapper">
@@ -31,8 +31,21 @@ function WalletChecker() {
  <button className='submitButton' type="submit"><FaArrowRightLong color='white' size={40}/></button>
  </div>
 </div>
+</center> */}
+
+<center>
+    <div className="search-bar">
+        <h1 style={{color:"white"}}>Let's See If You Can Mint</h1>
+        <div className="input-wrapper">
+            <input className="searchbar" type="text" value={searchTerm} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address'/>
+            <span className='submitButton'>
+                <FaArrowRightLong color='green' size={40}/>
+            </span>
+        </div>
+    </div>
 </center>
-    </>
+
+    </div>
   )
 }
 

@@ -60,8 +60,8 @@ function Foorter() {
           >
             <div>
               {" "}
-             <a > <Button disabled className=" rotate-button journey"
-                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"not-allowed" }}
+             <a > <Button onClick={()=> navigate('/mint')} className=" rotate-button journey"
+                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"pointer" }}
                 
               >
                 {" "}
@@ -134,7 +134,7 @@ function Foorter() {
         </div>
       </center>}
 
-<button onClick={navigate("/walletChecker")}>Wallet Checker</button>
+<button onClick={()=>navigate("/walletChecker")}>Wallet Checker</button>
 
     </>
   );
