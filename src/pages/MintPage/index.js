@@ -3,13 +3,16 @@ import mintPage_rotation from "../../assets/gifs/Mint_Gif.webp"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import logo from "../../assets/Logo/fido-dido-logo-white.png";
 import icon1 from "../../assets/mintPageIcons/mintIcon1.png";
-import icon2 from "../../assets/mintPageIcons/mintIcon1.png";
 import opensea from "../../assets/mintPageIcons/opensea1.png";
 import etherscan from "../../assets/mintPageIcons/etherscan.png";
 import "./mintPage.css"
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
+// import { Connect } from '../../components/wallet/connect'
+// import { useAccount } from "wagmi";
+
 
 function MintPage() {
+  // const { isConnected, address } = useAccount();
   return (
     <>
     <div className='container'>
@@ -31,21 +34,13 @@ function MintPage() {
         <img src={icon1} style={{height:"185px"}}  alt="" srcset="" />
         <button style={{padding:"10px", borderRadius:"10px"}}> <b> 2 NFTs</b>  </button>
         </div>
-
-       
-       
       </div>
       <div>
               {" "}
-             <a > <Button  className=" rotate-button journey"
-                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"pointer", width:"385px",padding:"10px", borderRadius:"10px",marginBlock:"25px" }}
-                
-              >
-                {" "}
-                {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-              Connect Wallet
-              </Button>{" "}
-              </a>
+             {/* <a>  */}
+              Hello
+              {/* <Connect /> */}
+              {/* </a> */}
             </div>
             <div style={{display:"flex",flexDirection:"row",alignContent:"center",justifyContent:"center",height:"30px",columnGap:"1rem",marginTop:"10px"}}>
     <img src={opensea} alt="X Logo" />

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Drawer, List, ListItemButton, IconButton } from '@mui/material';
+import { Drawer, List, IconButton } from '@mui/material';
 import { IoMenu } from "react-icons/io5";
 import logo from "../../assets/Logo/fido-dido-logo.png";
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import discord_logo from "../../assets/Logo/discord-mark-black.png";
-import Button from "react-bootstrap/Button";
 import waitlist from '@zootools/waitlist-js'
 import { AiOutlineClose } from "react-icons/ai";
 import opensea from "../../assets/Logo/Opensea NFT Marketplace.png"

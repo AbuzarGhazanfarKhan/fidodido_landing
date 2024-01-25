@@ -20,7 +20,7 @@ function WalletChecker() {
     {images.map((image, index) => (
 
 
-<div className="grid-item"> <img src={image} height={"120px"} width={"120px"} alt={`image ${index}`}/></div>
+<div className="grid-item"> <img src={image} height={"120px"} width={"120px"} alt={`${index}`}/></div>
     ))}
     </div>
 {/* <center>

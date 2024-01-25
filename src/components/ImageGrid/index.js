@@ -45,14 +45,16 @@ const ImageGrid = ({ images,mobileImages }) => {
       <br />
       <br />
       <Grid item xs={4}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
        <a  > <Button disabled className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} ><Countdown/></Button></a>
       </Grid>
       <Grid item xs={4}>
         <Button  className='Button' style={{minWidth:"76px",fontSize:"8px"}} onClick={clickPopup}>Join The Club</Button>
       </Grid>
       <Grid item xs={4}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
        <a   href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
-                target="_blank"> <Button className='Button'  style={{minWidth:"92px",fontSize:"8px"}} > FAQs </Button></a>
+                target="_blank" rel="noopener noreferrer"> <Button className='Button'  style={{minWidth:"92px",fontSize:"8px"}} > FAQs </Button></a>
       </Grid>
     </Grid>
     :   <Grid className='ImgGrid' container justifyContent={'center'} spacing={2}  height={"100%"} style={{position: 'relative'}}>
@@ -69,10 +71,14 @@ const ImageGrid = ({ images,mobileImages }) => {
         }} />
        </Grid>
      ))}
-    <img className='fido' src={fifoDido} />
+     
+    <img className='fido' src={fifoDido} alt=''/>
       </Grid>} 
-
-    { isMobile &&  <center>  <br /> <a href="https://t.co/uIw2DPr9UF" title="Buy on OpenSea" target="_blank"><img style={{width:"120px", borderRadius:"5px", boxShadow: "0px 1px 6px rgba(0, 0, 0, 0.25)"}} src="https://storage.googleapis.com/opensea-static/Badge/Badge%20-%20Available%20On%20-%20Light.png" alt="Available on OpenSea" /></a></center>}
+    { isMobile &&  <center>  <br /> 
+    
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <a href="https://t.co/uIw2DPr9UF" title="Buy on OpenSea" target="_blank" rel="noopener noreferrer">
+      <img style={{width:"120px", borderRadius:"5px", boxShadow: "0px 1px 6px rgba(0, 0, 0, 0.25)"}} src="https://storage.googleapis.com/opensea-static/Badge/Badge%20-%20Available%20On%20-%20Light.png" alt="Available on OpenSea" /></a></center>}
     </>
   );
 };
