@@ -79,6 +79,7 @@ Cooking{" "}
               <a
                 href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
                 target="_blank"
+                rel="noopener noreferrer"
                 style={{textDecoration:"none"}}
               >
                 {" "}
@@ -105,7 +106,7 @@ Cooking{" "}
               </a>{" "} 
             </div>
             <div>
-            <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
+            <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank" rel="noopener noreferrer">
               <img
                 src={opensea}
                 className="icon"
