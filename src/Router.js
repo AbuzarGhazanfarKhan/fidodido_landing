@@ -8,12 +8,8 @@ return (
    
         <Routes>
             <Route path='/' element={ <MainPage/>} /> 
-               
-         
             <Route path='/walletChecker' element={<WalletChecker/>} /> 
-            <Route path='/mint' element={<MintPage/>} /> 
-                
-           
+            <Route path='/mint' element={<MintPage/>} />  
         </Routes>
 
 )
