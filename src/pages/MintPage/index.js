@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import mintPage_rotation from "../../assets/gifs/Mint_Gif.webp"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import logo from "../../assets/Logo/fido-dido-logo-white.png";
@@ -10,10 +10,16 @@ import "./mintPage.css"
 import Button from "react-bootstrap/Button";
 
 function MintPage() {
+
+  const [activeButton, setActiveButton] = useState('1');
+  const handleButtonClick = (value) => {
+    setActiveButton(value);
+   };
+   
   return (
     <>
     <div className='container'>
-    <div style={{width:"50vw"}}>
+    <div className='fidoLeft'>
       <center> <img style={{height:"75px",marginBlock:"20px"}} src={logo} alt="" /> 
       <h2 style={{color:"white",width:"70%",fontWeight:"light"}}> Fido Dido is a collection of <b> 7,777 nostalgic 
           unique Fidos</b> stored on the blockchain, drawing 
@@ -23,13 +29,13 @@ function MintPage() {
      <h4 style={{color:"white",fontWeight:"lighter"}}>Private Sale</h4>
      
       <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignContent:"center",gap:"1rem"}}>
-        <div style={{display:"flex",alignContent:"center",flexDirection:"column"}} >
-        <img src={icon1} style={{height:"185px"}}  alt="" srcset="" />
-        <button style={{padding:"10px", borderRadius:"10px"}}> <b> 1 NFT</b>  </button>
+        <div style={{display:"flex",alignItems:"center",flexDirection:"column"}} >
+        <img src={icon1} className='fidoIcon'   alt="" srcset="" />
+        <button className={activeButton === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick('1')}> <b> 1 NFT</b>  </button>
         </div>
-        <div style={{display:"flex",alignContent:"center",flexDirection:"column"}}>
-        <img src={icon1} style={{height:"185px"}}  alt="" srcset="" />
-        <button style={{padding:"10px", borderRadius:"10px"}}> <b> 2 NFTs</b>  </button>
+        <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
+        <img src={icon1} className='fidoIcon'   alt="" srcset="" />
+        <button className={activeButton === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick('2')}> <b> 2 NFTs</b>  </button>
         </div>
 
        
@@ -37,13 +43,13 @@ function MintPage() {
       </div>
       <div>
               {" "}
-             <a > <Button  className=" rotate-button journey"
+             <a > <Button  className="journey"
                 style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"pointer", width:"385px",padding:"10px", borderRadius:"10px",marginBlock:"25px" }}
                 
               >
                 {" "}
                 {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-              Connect Wallet
+              Mint
               </Button>{" "}
               </a>
             </div>
@@ -57,9 +63,9 @@ function MintPage() {
     </div>
 
 
-    <div style={{background:"white",height:"100vh",width:"50vw"}}>
+    <div className='fidoRight' >
 <center> <h1> 0099/7777</h1></center>
-<center><img style={{borderRadius:"10px"}} src={mintPage_rotation} width={"75%"} alt="mintPage_rotation gif"  /> </center>
+<center><img style={{borderRadius:"10px"}} src={mintPage_rotation} width={"65%"} alt="mintPage_rotation gif"  /> </center>
 <div style={{display:"flex",flexDirection:"row",alignContent:"center",justifyContent:"center",height:"30px",columnGap:"1rem",marginTop:"10px"}}>
     <img src={x_logo} alt="X Logo" />
     <img src={x_logo} alt="X Logo" />

@@ -44,12 +44,13 @@ function Foorter() {
           <div>
             <img className="logo" src={logo} alt="Logo" />{" "}
           </div>
-          <div className="text" >
-            {" "}
-            <h2>
-              777 HAND-DRAWN <br /> GENESIS CARDS
-            </h2>{" "}
-          </div>
+          <div style={{marginLeft: "15px"}}>
+              {" "}
+              <Button  onClick={()=>navigate("/walletChecker")}>
+                {" "}
+                <span>Wallet Checker</span>{" "}
+              </Button>{" "}
+            </div>
           <div
             style={{
               display: "flex",
@@ -134,7 +135,7 @@ function Foorter() {
         </div>
       </center>}
 
-<button onClick={()=>navigate("/walletChecker")}>Wallet Checker</button>
+
 
     </>
   );
