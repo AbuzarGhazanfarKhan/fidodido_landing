@@ -235,7 +235,28 @@ height: 25%;
        .search-bar{
         width: 100vw;
         height: 30%;
+        font-size: inherit;
             }
+
+            .modal-content{
+                width: 84vw;
+  height: 57vw;
+            }
+            .right-section{
+                font-size: 15px;
+            }
+
+            .left-section img
+{
+  width: 83%;
+}
+
+.input-wrapper {
+    font-size: small;
+}
+.searchbar {
+    font-size: inherit;
+}
 
    }
 

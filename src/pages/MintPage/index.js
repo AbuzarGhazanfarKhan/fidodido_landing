@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import mintPage_rotation from "../../assets/gifs/Mint_Gif.webp"
+import mintPage_rotation from "../../assets/mintPageIcons/mintPage_rotation.gif"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import logo from "../../assets/Logo/fido-dido-logo-white.png";
 import icon1 from "../../assets/mintPageIcons/mintIcon1.png";
@@ -31,11 +31,11 @@ function MintPage() {
       <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignContent:"center",gap:"1rem"}}>
         <div style={{display:"flex",alignItems:"center",flexDirection:"column"}} >
         <img src={icon1} className='fidoIcon'   alt="" srcset="" />
-        <button className={activeButton === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick('1')}> <b> 1 NFT</b>  </button>
+        <button style={{minWidth:"180px"}} className={activeButton === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick('1')}> <b> 1 NFT</b>  </button>
         </div>
         <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
         <img src={icon1} className='fidoIcon'   alt="" srcset="" />
-        <button className={activeButton === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick('2')}> <b> 2 NFTs</b>  </button>
+        <button style={{minWidth:"180px"}} className={activeButton === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick('2')}> <b> 2 NFTs</b>  </button>
         </div>
 
        
