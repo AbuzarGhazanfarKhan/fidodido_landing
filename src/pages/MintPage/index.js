@@ -1,3 +1,5 @@
+// '0x3407706487259D3B1a910dc33Abd16bf98927adA' (public sale)
+// '0x287a2403F649D16C08170068dD881e60A65BB9b8' (both)
 import React from 'react'
 import mintPage_rotation from "../../assets/gifs/Mint_Gif.webp"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
@@ -7,9 +9,52 @@ import opensea from "../../assets/mintPageIcons/opensea1.png";
 import etherscan from "../../assets/mintPageIcons/etherscan.png";
 import "./mintPage.css"
 import { Connect } from '../../components/wallet/connect'
-
-
+import { useContractWrite, usePrepareContractWrite, useAccount } from 'wagmi'
+import abi from '../../abi/721.json'
+import { ethers } from "ethers"
 function MintPage() {
+  const { isConnected, address } = useAccount();
+
+  const price = ethers.parseEther("4");
+  const { config, error } = usePrepareContractWrite({
+    address: '0x287a2403F649D16C08170068dD881e60A65BB9b8',
+    abi,
+    functionName: 'safeMint',
+    args: [2, "0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB", ["0x04a10bfd00977f54cc3450c9b25c9b3a502a089eba0097ba35fc33c4ea5fcb54", "0x9d997719c0a5b5f6db9b8ac69a988be57cf324cb9fffd51dc2c37544bb520d65", "0x0befebd5f6f5e8b5f7ec6935245efbd76ce396aedac1b12781a64df01b75aab7"]], // mint 1 NFT
+    value: price, 
+  });
+
+
+  const { data, isLoading, error: writeError, write } = useContractWrite(config);
+
+  const Mint = async () => {
+    if (error) {
+      
+      if(error.message.includes("Mint limit reached")) {
+        alert("Your Mint limit has been reached. Please try again later");
+      } else if (error.details && (error.details).startsWith("err: insufficient funds for gas * price ")){
+          alert("Your Wallet has insufficient funds")
+      } if(error.message.includes("Total supply limit reached during private phase")){
+        alert("Total supply limit reached during private phase")
+      } if(error.message.includes("Max supply reached")){
+        alert("Minting has been completed")
+      } if(error.message.includes("Invalid merkle proof")){
+        alert("your Wallet is not in the whitelist. You can mint in the public phase")
+      } else if(error.message.includes("Wrong Ether value")){
+        alert("You are sending insufficient funds to the contract")
+      } else {
+        console.log("An error occurred: ", error.message);
+      }
+    
+    } else {
+      write?.()
+    }
+
+
+  }
+
+
+
   return (
     <>
       <div className='container'>
@@ -30,34 +75,34 @@ function MintPage() {
               </div>
               <div style={{ display: "flex", alignContent: "center", flexDirection: "column" }}>
                 <img src={icon1} style={{ height: "185px" }} alt="" srcset="" />
-                <button style={{ padding: "10px", borderRadius: "10px" }}> <b> 2 NFTs</b>  </button>
+                <button style={{ padding: "10px", borderRadius: "10px" }} onClick={Mint}> <b> 2 NFTs</b>  </button>
               </div>
             </div>
             <div>
               <Connect />
-        </div>
-        <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
-          <img src={opensea} alt="X Logo" />
-          <img src={etherscan} alt="X Logo" />
+            </div>
+            <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
+              <img src={opensea} alt="X Logo" />
+              <img src={etherscan} alt="X Logo" />
+
+            </div>
+          </center>
+
+        </div >
+
+
+        <div style={{ background: "white", height: "100vh", width: "50vw" }}>
+          <center> <h1> 0099/7777</h1></center>
+          <center><img style={{ borderRadius: "10px" }} src={mintPage_rotation} width={"75%"} alt="mintPage_rotation gif" /> </center>
+          <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
+            <img src={x_logo} alt="X Logo" />
+            <img src={x_logo} alt="X Logo" />
+            <img src={x_logo} alt="X Logo" />
+          </div>
+
 
         </div>
-      </center>
-
-    </div >
-
-
-      <div style={{ background: "white", height: "100vh", width: "50vw" }}>
-        <center> <h1> 0099/7777</h1></center>
-        <center><img style={{ borderRadius: "10px" }} src={mintPage_rotation} width={"75%"} alt="mintPage_rotation gif" /> </center>
-        <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
-          <img src={x_logo} alt="X Logo" />
-          <img src={x_logo} alt="X Logo" />
-          <img src={x_logo} alt="X Logo" />
-        </div>
-
-
-      </div>
-    </div >
+      </div >
     </>
   )
 }
