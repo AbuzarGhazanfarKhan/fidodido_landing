@@ -2,51 +2,64 @@
 import './walletChecker.css';
 import React, { useState } from 'react';
 import { FaArrowRightLong } from "react-icons/fa6";
+import okFido from '../../assets/Links/10.webp'
+import failedFido from '../../assets/Links/37.webp'
 
 function WalletChecker() {
-  const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+    const [showModal, setShowsModal] = useState(false);
+    const [closeModal, setClosesModal] = useState(false);
 
-  const handleInputChange = event => {
-     setSearchTerm(event.target.value);
-  };
+    const handleInputChange = event => {
+        setSearchTerm(event.target.value);
+    };
     const importAllImages = (r) => r.keys().map(r);
     const images = importAllImages(
         require.context("../../assets/Links", false, /\.(png|jpe?g|svg|gif|webp)$/)
-      );
-      console.log(images);
-  return (
-    <div style={{background:"black"}}>
-    <div className="grid-container">
-    {images.map((image, index) => (
+    );
+    console.log(images);
+    return (
+        <div style={{ background: "black" }}>
+            <div className="grid-container">
+
+                {images.map((image, index) => (
 
 
-<div className="grid-item"> <img src={image} height={"120px"} width={"120px"} alt={`${index}`}/></div>
-    ))}
-    </div>
-{/* <center>
-    <div className="search-bar">
- <h1 style={{color:"white"}}>Let's See If You Can Mint</h1>
- <div className="input-wrapper">
- <input className="searchbar" type="text" value={searchTerm} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address'/>
- <button className='submitButton' type="submit"><FaArrowRightLong color='white' size={40}/></button>
- </div>
-</div>
-</center> */}
+                    <div className="grid-item"> <img src={image} alt={` ${index}`} /></div>
+                ))}
+            </div>
 
-<center>
-    <div className="search-bar">
-        <h1 style={{color:"white"}}>Let's See If You Can Mint</h1>
-        <div className="input-wrapper">
-            <input className="searchbar" type="text" value={searchTerm} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address'/>
-            <span className='submitButton'>
-                <FaArrowRightLong color='green' size={40}/>
-            </span>
+
+            <center>
+                <div className="search-bar">
+                    <h1 style={{ color: "white" }}>Let's See If You Can Mint</h1>
+                    <div className="input-wrapper">
+                    <center>    <input className="searchbar" type="text" value={searchTerm} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address' />
+                        <span onClick={()=>setShowsModal(true)} className='submitButton'>
+                            <FaArrowRightLong color='#009016' size={40} />
+                        </span>
+                        </center>
+                    </div>
+                </div>
+            </center>
+            {showModal ? (
+        <div className="modal">
+          <div className="modal-content">
+          <span className="close" onClick={()=>setShowsModal(false)}>X</span>
+          <div className='modalSection'>
+            <div className="left-section">
+              <img src={okFido} alt="Image" />
+            </div>
+            <div className="right-section">
+              <p>YOUR JOURNEY STARTS NOW, 
+YOU’VE BEEN WHITELISTED</p>
+            </div>
+            </div>
+          </div>
         </div>
-    </div>
-</center>
-
-    </div>
-  )
+      ) : null}
+        </div>
+    )
 }
 
 export default WalletChecker

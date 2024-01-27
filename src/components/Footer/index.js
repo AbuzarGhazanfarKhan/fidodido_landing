@@ -1,12 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 import logo from "../../assets/Logo/fido-dido-logo.png";
 import Button from "react-bootstrap/Button";
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import discord_logo from "../../assets/Logo/discord-mark-blue.png";
 import "./Footer.css";
+import { Grid, Paper} from '@mui/material';
 import { useMediaQuery } from 'react-responsive';
 import waitlist from '@zootools/waitlist-js'
 import opensea from "../../assets/Logo/Opensea NFT Marketplace.png"
+import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -42,12 +44,13 @@ function Foorter() {
           <div>
             <img className="logo" src={logo} alt="Logo" />{" "}
           </div>
-          <div className="text" >
-            {" "}
-            <h2>
-              777 HAND-DRAWN <br /> GENESIS CARDS
-            </h2>{" "}
-          </div>
+          <div style={{marginLeft: "15px"}}>
+              {" "}
+              <Button  onClick={()=>navigate("/walletChecker")}>
+                {" "}
+                <span>Wallet Checker</span>{" "}
+              </Button>{" "}
+            </div>
           <div
             style={{
               display: "flex",
@@ -58,7 +61,6 @@ function Foorter() {
           >
             <div>
               {" "}
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
              <a > <Button onClick={()=> navigate('/mint')} className=" rotate-button journey"
                 style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"pointer" }}
                 
@@ -81,7 +83,6 @@ function Foorter() {
               <a
                 href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 {" "}
                 <Button>  FAQs </Button>{" "}
@@ -91,7 +92,7 @@ function Foorter() {
 
           <div style={{ display: "flex", flexDirection: "row", gap: "7px",alignItems:"center" }}>
             <div>
-              <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank" rel="noopener noreferrer">
+              <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
               <img
                 src={opensea}
                 className="icon"
@@ -134,7 +135,7 @@ function Foorter() {
         </div>
       </center>}
 
-<button onClick={()=>navigate("/walletChecker")}>Wallet Checker</button>
+
 
     </>
   );
