@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import mintPage_rotation from "../../assets/mintPageIcons/mintPage_rotation.gif"
-import React from 'react'
-import mintPage_rotation from "../../assets/gifs/Mint_Gif.webp"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import logo from "../../assets/Logo/fido-dido-logo-white.png";
 import icon1 from "../../assets/mintPageIcons/mintIcon1.png";
@@ -12,6 +10,9 @@ import { Connect } from '../../components/wallet/connect'
 import { useContractWrite, usePrepareContractWrite, useAccount } from 'wagmi'
 import abi from '../../abi/721.json'
 import { ethers } from "ethers"
+import Button from "react-bootstrap/Button";
+
+
 function MintPage() {
   const [activeButton, setActiveButton] = useState('1');
   const { isConnected, address } = useAccount();
