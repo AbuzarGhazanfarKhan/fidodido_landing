@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 
 export const Connect = () => {
 
+    console.log("AAAAAAAAAAAAAAAAAAAAA")
+
     return (
         <ConnectButton.Custom>
             {({

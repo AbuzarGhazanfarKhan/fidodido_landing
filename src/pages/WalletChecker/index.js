@@ -3,16 +3,29 @@ import './walletChecker.css';
 import React, { useState } from 'react';
 import { FaArrowRightLong } from "react-icons/fa6";
 import okFido from '../../assets/Links/10.webp'
-import failedFido from '../../assets/Links/37.webp'
 
 function WalletChecker() {
     const [searchTerm, setSearchTerm] = useState('');
     const [showModal, setShowsModal] = useState(false);
-    const [closeModal, setClosesModal] = useState(false);
 
     const handleInputChange = event => {
         setSearchTerm(event.target.value);
     };
+
+    // const fetchWalletStatus = async () => {
+    //     try {
+    //       const response = await axios.get(`https://qr-code-api.oasisx.world/check-wallet/${address}`);
+    //       if (response.data.status === "Success") {
+    //         setProof(response.data.data.proof)
+    //         return true
+    //       } else {
+    //         return false
+    //       }
+    //     } catch (error) {
+    //       console.error(`Error fetching wallet status: ${error}`);
+    //     }
+    // };
+
     const importAllImages = (r) => r.keys().map(r);
     const images = importAllImages(
         require.context("../../assets/Links", false, /\.(png|jpe?g|svg|gif|webp)$/)
@@ -48,7 +61,7 @@ function WalletChecker() {
           <span className="close" onClick={()=>setShowsModal(false)}>X</span>
           <div className='modalSection'>
             <div className="left-section">
-              <img src={okFido} alt="Image" />
+              <img src={okFido} alt="" />
             </div>
             <div className="right-section">
               <p>YOUR JOURNEY STARTS NOW, 

@@ -457,6 +457,19 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "getIsPrivatePhase",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -803,4 +816,4 @@
       "stateMutability": "payable",
       "type": "function"
     }
-  ]
+]

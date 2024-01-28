@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import mintPage_rotation from "../../assets/mintPageIcons/mintPage_rotation.gif"
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
 import logo from "../../assets/Logo/fido-dido-logo-white.png";
@@ -7,34 +7,70 @@ import opensea from "../../assets/mintPageIcons/opensea1.png";
 import etherscan from "../../assets/mintPageIcons/etherscan.png";
 import "./mintPage.css"
 import { Connect } from '../../components/wallet/connect'
-import { useContractWrite, usePrepareContractWrite, useAccount } from 'wagmi'
+import { useContractWrite, useContractRead, usePrepareContractWrite, useAccount } from 'wagmi'
 import abi from '../../abi/721.json'
 import { ethers } from "ethers"
 import Button from "react-bootstrap/Button";
+import axios from 'axios';
+
 
 
 function MintPage() {
-  const [activeButton, setActiveButton] = useState('1');
+  const [no_of_NFTs, set_no_of_NFTs] = useState(1);
+  const [PrivatePhase, setPrivatePhase] = useState(true);
+  const [price, setPrice] = useState("")
+  const [proof, setProof] = useState([])
+
   const { isConnected, address } = useAccount();
-  
+
   const handleButtonClick = (value) => {
-    setActiveButton(value);
+    set_no_of_NFTs(value);
   };
-  const price = ethers.parseEther("4");
+  const { data: phase, isError: phaseError, isLoading: phaseLoading } = useContractRead({
+    address: '0x2674825E9F5a21391582A42a4Ef0664FC23E6c06',
+    abi,
+    functionName: 'getIsPrivatePhase',
+    args: [],
+    watch: true, // optional
+  });
   const { config, error } = usePrepareContractWrite({
-    address: '0x287a2403F649D16C08170068dD881e60A65BB9b8',
+    address: '0x2674825E9F5a21391582A42a4Ef0664FC23E6c06',
     abi,
     functionName: 'safeMint',
-    args: [2, "0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB", ["0x04a10bfd00977f54cc3450c9b25c9b3a502a089eba0097ba35fc33c4ea5fcb54", "0x9d997719c0a5b5f6db9b8ac69a988be57cf324cb9fffd51dc2c37544bb520d65", "0x0befebd5f6f5e8b5f7ec6935245efbd76ce396aedac1b12781a64df01b75aab7"]], // mint 1 NFT
+    args: [no_of_NFTs, address, proof],
     value: price,
   });
+  const fetchWalletStatus = async () => {
+    try {
+      const response = await axios.get(`https://qr-code-api.oasisx.world/check-wallet/${address}`);
+      if (response.data.status === "Success") {
+        setProof(response.data.data.proof)
+        return true
+      } else {
+        return false
+      }
+    } catch (error) {
+      console.error(`Error fetching wallet status: ${error}`);
+    }
+  };
 
+  useEffect(() => {
+    if (PrivatePhase) {
+      if (fetchWalletStatus()) {
+        setPrice(ethers.parseEther((0.03 * no_of_NFTs).toString()));
+      }
+    } else {
+      setPrice(ethers.parseEther((0.04 * no_of_NFTs).toString()));
+    }
+  }, [useContractRead, usePrepareContractWrite, no_of_NFTs, address])
 
-  const { data, isLoading, error: writeError, write } = useContractWrite(config);
+  const { data: MintData, isLoading: MintLoading, write } = useContractWrite(config);
 
+  
+  console.log("-----------------------------------",address)
   const Mint = async () => {
+    
     if (error) {
-
       if (error.message.includes("Mint limit reached")) {
         alert("Your Mint limit has been reached. Please try again later");
       } else if (error.details && (error.details).startsWith("err: insufficient funds for gas * price ")) {
@@ -52,7 +88,7 @@ function MintPage() {
       }
 
     } else {
-      write?.()
+      write()
     }
 
 
@@ -73,27 +109,29 @@ function MintPage() {
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", gap: "1rem" }}>
               <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }} >
                 <img src={icon1} className='fidoIcon' alt="" srcset="" />
-                <button style={{ minWidth: "180px" }} className={activeButton === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick('1')}> <b> 1 NFT</b>  </button>
+                <button style={{ minWidth: "180px" }} className={no_of_NFTs === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick(1)}> <b> 1 NFT</b>  </button>
               </div>
               <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <img src={icon1} className='fidoIcon' alt="" srcset="" />
-                <button style={{ minWidth: "180px" }} className={activeButton === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick('2')}> <b> 2 NFTs</b>  </button>
+                <button style={{ minWidth: "180px" }} className={no_of_NFTs === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick(2)}> <b> 2 NFTs</b>  </button>
               </div>
-
-
 
             </div>
             <div>
-              {" "}
-              <a > <Button className="journey"
-                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white", cursor: "pointer", width: "385px", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
+              {
+                !isConnected ? <Connect /> :
+                  <a >
+                    <Button className="journey"
+                      style={{ backgroundColor: "rgb(23, 152, 23)", color: "white", cursor: "pointer", width: "385px", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
+                      onClick={Mint}
+                    >
+                      {" "}
+                      {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
+                      Mint
+                    </Button>{" "}
+                  </a>
+              }
 
-              >
-                {" "}
-                {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-                Mint
-              </Button>{" "}
-              </a>
             </div>
             <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
               <img src={opensea} alt="X Logo" />
