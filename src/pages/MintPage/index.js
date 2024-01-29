@@ -8,11 +8,11 @@ import etherscan from "../../assets/mintPageIcons/etherscan.png";
 import "./mintPage.css"
 import { Connect } from '../../components/wallet/connect'
 import { useContractWrite, useContractRead, usePrepareContractWrite, useAccount } from 'wagmi'
-import abi from '../../abi/721.json'
+import abi from '../../abi/erc721.json'
 import { ethers } from "ethers"
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
-
+// import { useReadContract } from 'wagmi'
 
 
 function MintPage() {
@@ -30,7 +30,7 @@ function MintPage() {
   const { data: phase, isError: phaseError, isLoading: phaseLoading } = useContractRead({
     address: '0x7d0680a4611993cFc289DDFD714556A959226a91',
     abi,
-    functionName: 'getIsPrivatePhase',
+    functionName: '_isPrivatePhase',
     args: [],
     watch: true, // optional
   });
@@ -48,6 +48,11 @@ function MintPage() {
     args: [no_of_NFTs, address, proof],
     value: price,
   });
+
+
+
+
+  
   const fetchWalletStatus = async () => {
     try {
       const response = await axios.get(`https://qr-code-api.oasisx.world/check-wallet/${address}`);
@@ -65,6 +70,9 @@ function MintPage() {
   useEffect(() => {
 setPrivatePhase(phase)
 setTotalSupply(supply)
+console.log(supply);
+console.log(phase);
+console.log(supplyError);
     if (PrivatePhase) {
       if (fetchWalletStatus()) {
         setPrice(ethers.parseEther((0.03 * no_of_NFTs).toString()));
@@ -114,16 +122,16 @@ setTotalSupply(supply)
               inspiration from the vibrant <b>90s era</b>, complete
               with cool <b>commercial & gaming rights</b>
             </h2>
-            <h4 style={{ color: "white", fontWeight: "lighter" }}>Private Sale</h4>
+            <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${PrivatePhase ?"Private Sale": "Public Sale"} `}</h4>
 
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", gap: "1rem" }}>
               <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }} >
                 <img src={icon1} className='fidoIcon' alt="" srcset="" />
-                <button style={{ minWidth: "180px" }} className={no_of_NFTs === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick(1)}> <b> 1 NFT</b>  </button>
+                <button  className={no_of_NFTs.toString() === '1' ? 'active' : 'notActive'} onClick={() => handleButtonClick(1)}> <b> 1 NFT</b>  </button>
               </div>
               <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <img src={icon1} className='fidoIcon' alt="" srcset="" />
-                <button style={{ minWidth: "180px" }} className={no_of_NFTs === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick(2)}> <b> 2 NFTs</b>  </button>
+                <button  className={no_of_NFTs.toString() === '2' ? 'active' : 'notActive'} onClick={() => handleButtonClick(2)}> <b> 2 NFTs</b>  </button>
               </div>
 
             </div>
@@ -132,7 +140,7 @@ setTotalSupply(supply)
                 !isConnected ? <Connect /> :
                   <a >
                     <Button className="journey"
-                      style={{ backgroundColor: "rgb(23, 152, 23)", color: "white", cursor: "pointer", width: "385px", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
+                      style={{ backgroundColor: "rgb(23, 152, 23)", color: "white", cursor: "pointer", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
                       onClick={Mint}
                     >
                       {" "}
@@ -154,7 +162,7 @@ setTotalSupply(supply)
 
 
         <div className='fidoRight' >
-          <center> <h1> {TotalSupply}/7777</h1></center>
+          <center> <h1> {supply?.toString()}/7777</h1></center>
           <center><img style={{ borderRadius: "10px" }} src={mintPage_rotation} width={"65%"} alt="mintPage_rotation gif" /> </center>
           <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
             <img src={x_logo} alt="X Logo" />
