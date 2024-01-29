@@ -18,6 +18,7 @@ import axios from 'axios';
 function MintPage() {
   const [no_of_NFTs, set_no_of_NFTs] = useState(1);
   const [PrivatePhase, setPrivatePhase] = useState(true);
+  const [TotalSupply, setTotalSupply] = useState(0);
   const [price, setPrice] = useState("")
   const [proof, setProof] = useState([])
 
@@ -27,14 +28,21 @@ function MintPage() {
     set_no_of_NFTs(value);
   };
   const { data: phase, isError: phaseError, isLoading: phaseLoading } = useContractRead({
-    address: '0x2674825E9F5a21391582A42a4Ef0664FC23E6c06',
+    address: '0x7d0680a4611993cFc289DDFD714556A959226a91',
     abi,
     functionName: 'getIsPrivatePhase',
     args: [],
     watch: true, // optional
   });
+  const { data: supply, isError: supplyError, isLoading: supplyLoading } = useContractRead({
+    address: '0x7d0680a4611993cFc289DDFD714556A959226a91',
+    abi,
+    functionName: 'totalSupply',
+    args: [],
+    watch: true, // optional
+  });
   const { config, error } = usePrepareContractWrite({
-    address: '0x2674825E9F5a21391582A42a4Ef0664FC23E6c06',
+    address: '0x7d0680a4611993cFc289DDFD714556A959226a91',
     abi,
     functionName: 'safeMint',
     args: [no_of_NFTs, address, proof],
@@ -55,6 +63,8 @@ function MintPage() {
   };
 
   useEffect(() => {
+setPrivatePhase(phase)
+setTotalSupply(supply)
     if (PrivatePhase) {
       if (fetchWalletStatus()) {
         setPrice(ethers.parseEther((0.03 * no_of_NFTs).toString()));
@@ -144,7 +154,7 @@ function MintPage() {
 
 
         <div className='fidoRight' >
-          <center> <h1> 0099/7777</h1></center>
+          <center> <h1> {TotalSupply}/7777</h1></center>
           <center><img style={{ borderRadius: "10px" }} src={mintPage_rotation} width={"65%"} alt="mintPage_rotation gif" /> </center>
           <div style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "center", height: "30px", columnGap: "1rem", marginTop: "10px" }}>
             <img src={x_logo} alt="X Logo" />
