@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { FaArrowRightLong } from "react-icons/fa6";
 import okFido from '../../assets/Links/10.webp'
 import NoFido from '../../assets/Links/37.webp'
+import loader from '../../assets/loader/loader.gif'
 import axios from "axios";
 
 function WalletChecker() {
@@ -14,6 +15,13 @@ function WalletChecker() {
     const handleInputChange = event => {
         setAddress(event.target.value);
     };
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+
+            setVerify("loading")
+            fetchWalletStatus();
+        }
+      };
 
     const fetchWalletStatus = async () => {
         setShowsModal(true)
@@ -21,6 +29,7 @@ function WalletChecker() {
             const response = await axios.get(`https://qr-code-api.oasisx.world/check-wallet/${address}`);
             if (response.data.status === "Success") {
                 setVerify("true")
+                
             } else {
                 setVerify("false")
             }
@@ -49,7 +58,7 @@ function WalletChecker() {
                 <div className="search-bar">
                     <h1 style={{ color: "white" }}>Let's See If You Can Mint</h1>
                     <div className="input-wrapper">
-                        <center>    <input className="searchbar" type="text" value={address} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address' />
+                        <center>    <input className="searchbar"  onKeyDown={handleKeyDown} type="text" value={address} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address' />
                             <span onClick={fetchWalletStatus} className='submitButton'>
                                 <FaArrowRightLong color='#009016' size={40} />
                             </span>
@@ -86,10 +95,10 @@ function WalletChecker() {
                                     </> : 
                                     <>
                                     <div className="left-section">
-                                        <img src={okFido} alt="" />
+                                        <img src={loader} alt="" />
                                     </div>
                                     <div className="right-section">
-                                        <p>....</p>
+                                        <p> <b>Fetching .... </b></p>
                                     </div>
                                 </> 
                             }
