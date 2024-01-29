@@ -69,7 +69,7 @@ function WalletChecker() {
             {showModal ? (
                 <div className="modal">
                     <div className="modal-content">
-                        <span className="close" onClick={() => setShowsModal(false)}>X</span>
+                        <span className="close" onClick={() => {setShowsModal(false); setVerify("loading")}}>X</span>
                         <div className='modalSection'>
                             {
                                 verify === "true" ?
