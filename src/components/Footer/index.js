@@ -2,12 +2,12 @@ import React,{useState} from "react";
 import logo from "../../assets/Logo/fido-dido-logo.png";
 import Button from "react-bootstrap/Button";
 import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
-import discord_logo from "../../assets/Logo/discord-mark-blue.png";
+import discord_logo from "../../assets/Logo/black-discord-icon-27.jpg";
 import "./Footer.css";
 import { Grid, Paper} from '@mui/material';
 import { useMediaQuery } from 'react-responsive';
 import waitlist from '@zootools/waitlist-js'
-import opensea from "../../assets/Logo/Opensea NFT Marketplace.png"
+import opensea from "../../assets/Logo/opensea-logo.svg"
 import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -44,13 +44,12 @@ function Foorter() {
           <div>
             <img className="logo" src={logo} alt="Logo" />{" "}
           </div>
-          <div style={{marginLeft: "15px"}}>
-              {" "}
-              <Button  onClick={()=>navigate("/walletChecker")}>
-                {" "}
-                <span>Wallet Checker</span>{" "}
-              </Button>{" "}
-            </div>
+          <div className="text" >
+            {" "}
+            <h2>
+              Phase II: 7777 <br /> NOSTALGIC FIDOS
+            </h2>{" "}
+          </div>
           <div
             style={{
               display: "flex",
@@ -81,7 +80,7 @@ function Foorter() {
             <div>
               {" "}
               <a
-                href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
+                href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/MXtr_zP0GX-l94OZRQQ5J-E-_Ua7foYwaX-oyCB97tU"
                 target="_blank"
               >
                 {" "}
@@ -89,8 +88,24 @@ function Foorter() {
               </a>
             </div>
           </div>
-
-          <div style={{ display: "flex", flexDirection: "row", gap: "7px",alignItems:"center" }}>
+          <div style={{marginLeft: "15px"}}>
+              {" "}
+              <Button  onClick={()=>navigate("/walletChecker")}>
+                {" "}
+                <span>Wallet Checker</span>{" "}
+              </Button>{" "}
+            </div>
+        
+        </div>
+        <hr />
+        <div className="terms">
+          <p>
+           <b> TERMS OF USE</b>
+          </p>
+          <p>
+          <b>  IP RIGHTS</b>
+          </p>
+                 <div style={{ display: "flex", flexDirection: "row", gap: "7px",alignItems:"center" }}>
             <div>
               <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
               <img
@@ -132,7 +147,8 @@ function Foorter() {
               </a>
             </div>
           </div>
-        </div>
+          </div>
+ 
       </center>}
 
 

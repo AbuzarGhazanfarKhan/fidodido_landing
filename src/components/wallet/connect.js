@@ -47,16 +47,16 @@ export const Connect = () => {
                             if (!connected) {
                                 return (
                                     <Button className=" rotate-button journey"
-                                        style={{ backgroundColor: "white", color: "rgb(23, 152, 23)", cursor: "pointer", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
+                                        style={{ backgroundColor: "white", color: "rgb(23, 152, 23)", cursor: "pointer", borderRadius: "10px", marginBlock: "25px" }}
                                         onClick={connectWallet}>
-                                        Connect Wallet
+                                        CONNECT WALLET
                                     </Button>
                                 );
                             }
                             if (chain.unsupported) {
                                 return (
                                     <Button
-                                        style={{ backgroundColor: "white", color: "rgb(23, 152, 23)", cursor: "pointer", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
+                                        style={{ backgroundColor: "white", color: "rgb(23, 152, 23)", cursor: "pointer", borderRadius: "10px", marginBlock: "25px" }}
                                         onClick={openChainModal} >
                                         Wrong network
                                     </Button>
@@ -67,7 +67,7 @@ export const Connect = () => {
                                     <Button
                                         onClick={openAccountModal}
                                         className=" rotate-button journey"
-                                        style={{ backgroundColor: "rgb(23, 152, 23)", color: "white", cursor: "pointer", width: "385px", padding: "10px", borderRadius: "10px", marginBlock: "25px" }}
+                                        style={{ backgroundColor: "rgb(23, 152, 23)", color: "white", cursor: "pointer", width: "385px", borderRadius: "10px", marginBlock: "25px" }}
                                     >
                                         {account.displayName}
                                     </Button>

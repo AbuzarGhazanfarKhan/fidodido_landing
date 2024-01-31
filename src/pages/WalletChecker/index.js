@@ -56,7 +56,7 @@ function WalletChecker() {
 
             <center>
                 <div className="search-bar">
-                    <h1 style={{ color: "white" }}>Let's See If You Can Mint</h1>
+                    <h1 style={{ color: "white" }}>LET'S SEE IF YOU CAN MINT</h1>
                     <div className="input-wrapper">
                         <center>    <input className="searchbar"  onKeyDown={handleKeyDown} type="text" value={address} onChange={handleInputChange} placeholder='Please Enter Your Wallet Address' />
                             <span onClick={fetchWalletStatus} className='submitButton'>

@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Drawer, List, IconButton } from '@mui/material';
 import { IoMenu } from "react-icons/io5";
 import logo from "../../assets/Logo/fido-dido-logo.png";
-import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
-import discord_logo from "../../assets/Logo/discord-mark-black.png";
+
 import waitlist from '@zootools/waitlist-js'
 import { AiOutlineClose } from "react-icons/ai";
-import opensea from "../../assets/Logo/Opensea NFT Marketplace.png"
-
+import x_logo from "../../assets/Logo/twitter-x-logo-0339F999CF-seeklogo.com.png";
+import discord_logo from "../../assets/Logo/black-discord-icon-27.jpg";
+import opensea from "../../assets/Logo/opensea-logo.svg"
+import CountdownTimer from '../Countdown';
+import { useNavigate } from "react-router-dom";
 
 
 const HamburgerMenu = () => {
@@ -18,6 +20,7 @@ const HamburgerMenu = () => {
     // Pass your waitlist ID
     waitlist.openPopup("EI7h0QshP1hLQy11sdy4")
   }
+  let navigate = useNavigate();
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -42,7 +45,7 @@ const HamburgerMenu = () => {
           <div >
             {" "}
             <h2 style={{marginInline:"6px"}}>
-           <center>   777 HAND-DRAWN <br /> GENESIS CARDS </center>
+           <center>      Phase II: 7777 <br /> NOSTALGIC FIDOS </center>
             </h2>{" "}
           </div>
    
@@ -60,11 +63,10 @@ const HamburgerMenu = () => {
               {" "}
               <div 
                 style={{width:"100%",marginBottom:"5px",color:"white"}} 
-                 
+                onClick={()=> navigate('/mint')}
               >
                 {" "}
-                Phase II 
-Cooking{" "}
+            <CountdownTimer/>
               </div>{" "}
             </div>
             <div>

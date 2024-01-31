@@ -1,0 +1,209 @@
+%!Adobe-FontList 1.23
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/AdobeFnt23.lst
+FileLength:4960
+FileModTime:727645723
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Gotham-Bold
+FamilyName:Gotham
+StyleName:Bold
+MenuName:Gotham
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Gotham Bold
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Gotham-Bold_0(1).otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:21408
+FileModTime:458182646
+NameArray:0,Mac,4,Gotham Bold
+NameArray:0,Win,1,Gotham
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Gotham-Light
+FamilyName:Gotham
+StyleName:Regular
+MenuName:Gotham
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Gotham
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Gotham-Light_0(1).otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:21324
+FileModTime:458182658
+NameArray:0,Mac,4,Gotham
+NameArray:0,Win,1,Gotham
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+MenuName:Minion Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Minion Pro
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:218640
+FileModTime:721141749
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Poppins-Black
+FamilyName:Poppins
+StyleName:Black
+MenuName:Poppins Black
+StyleBits:0
+WeightClass:900
+WidthClass:5
+AngleClass:0
+FullName:Poppins Black
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Poppins-Black.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:151396
+FileModTime:454971600
+NameArray:0,Win,1,Poppins Black
+NameArray:0,Win,16,Poppins
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Poppins-Bold
+FamilyName:Poppins
+StyleName:Bold
+MenuName:Poppins
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Poppins Bold
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Poppins-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:153944
+FileModTime:454971600
+NameArray:0,Win,1,Poppins
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Poppins-Light
+FamilyName:Poppins
+StyleName:Light
+MenuName:Poppins Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Poppins Light
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Poppins-Light.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:159892
+FileModTime:454971600
+NameArray:0,Win,1,Poppins Light
+NameArray:0,Win,16,Poppins
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Poppins-LightItalic
+FamilyName:Poppins
+StyleName:Light Italic
+MenuName:Poppins Light
+StyleBits:1
+WeightClass:300
+WidthClass:5
+AngleClass:1
+FullName:Poppins Light Italic
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Poppins-LightItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:184460
+FileModTime:454971600
+NameArray:0,Win,1,Poppins Light
+NameArray:0,Win,16,Poppins
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Poppins-SemiBold
+FamilyName:Poppins
+StyleName:SemiBold
+MenuName:Poppins SemiBold
+StyleBits:0
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Poppins SemiBold
+WritingScript:Roman
+OutlineFileName:/Users/leaoueidat/Desktop/Freelance/Oasis - Fido Dido/Fido Dido Phase 2 website/Fido Dido Phase 2 (Open File)/Fido Dido -P2 Open file Folder/Document fonts/Poppins-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:155232
+FileModTime:454971600
+NameArray:0,Win,1,Poppins SemiBold
+NameArray:0,Win,16,Poppins
+%EndFont
+

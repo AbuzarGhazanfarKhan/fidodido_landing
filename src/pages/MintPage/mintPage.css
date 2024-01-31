@@ -5,14 +5,14 @@
 
 .active{
   /* min-width: 50px; */
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   padding: 8px ;
   letter-spacing: 2px;
   border-radius: 10px;
   background-color: white;
-  min-width: 180px;
+  min-width: 250px;
 
 }
 .notActive{
@@ -27,7 +27,7 @@
   border-radius: 10px;
   background-color: black;
   transition: all 0.5s ease;
-  min-width: 180px;
+  min-width: 250px;
 }
 .notActive:hover{
     box-shadow: 3px 3px 12px 0px rgba(255, 255, 255, 0.735);;
@@ -39,7 +39,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     /* padding: 15px 38px; */
-    width: 385px;
+    width: 65%;
     letter-spacing: 2px;
     border-radius: 10px;
     outline: #009016;
@@ -49,6 +49,7 @@
     overflow: hidden;
     max-height: 56px;
     min-height: 56px;
+    padding: 10px;
     transition: all 0.5s ease;
     /* box-shadow:2px 2px 10px #009016 ; */
 }
@@ -56,18 +57,59 @@
     box-shadow: 3px 6px 14px 0px #009016;
 }
 .fidoLeft{
-    width:50vw;
+    width:48vw;
 }
 .fidoRight{
+    font-family: 'Poppins', sans-serif;
   background:white;
- height: 100vh;
-  width:50vw;
+ height: 133vh;
+  width:52vw;
 }
 .fidoIcon{
     align-items: center;
     height: 185px;
 }
+.fidoLeft h3{
+    width: 70%;
+}
+.mintIcons{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    height: 30px;
+    column-gap: 1rem;
+    margin-top: 10px;
+}
+.fidoLogo{
 
+    height: 85px;
+     margin-block: 30px;
+     margin-top: 100px ;
+}
+
+
+.socialIcons{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    height: 35px;
+    column-gap: 1rem;
+    margin-block: 20px;   
+}
+@media (max-width:1540px){
+
+.journey{
+    width: 72%;
+}
+}
+@media (max-width:1350px){
+
+.journey{
+    width: 80%;
+}
+}
 
 @media (max-width:770px){
 
@@ -100,15 +142,31 @@ padding-inline: 6px;
     }
 }
 
-@media screen and (max-width: 378px) {
+@media screen and (max-width: 398px) {
 
     .journey{
         width: 305px;
+        font-size: 12px;
+        padding: 6px;
     }
     .active {
         min-width: 145px;
     }
    .notActive{
     min-width: 145px;
+     }
+    .fidoLeft h3{
+        font-size: 12px;
+        width: 80%;
+     }
+     .mintIcons{
+        margin-bottom: 10px;
+     }
+     .fidoLogo{
+        margin-top: 50px;
+        height: 74px;
+     }
+     .socialIcons{
+
      }
 }

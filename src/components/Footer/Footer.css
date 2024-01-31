@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap');
-
+@font-face {
+    font-family: 'miniPro' ;
+ 
+    src: url("../../assets/fonts/MinionPro-Regular.otf");
+}
 
 .footer{
     width: 96vw;
@@ -46,7 +50,20 @@
 
 
 .text{
-margin-inline: 90px;
+    margin-inline: 70px;
+}
+hr{
+    width: 94%;
+  color: #808080ab;
+}
+.terms{
+    display: flex;
+  justify-content: end;
+  width: 94%;
+    font-size: 22px;
+    font-family:'Poppins', sans-serif;
+    align-items: center;
+    gap: 5rem;
 }
 
 /* @media (max-width:1570){

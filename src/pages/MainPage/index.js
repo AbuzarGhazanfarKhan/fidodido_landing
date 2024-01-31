@@ -35,7 +35,7 @@ function MainPage() {
         </div>
        
        <center> <h1 style={{fontSize:"20px",marginTop:"22px"}}>
-        777 HAND-DRAWN GENESIS CARDS
+       Phase II: 7777  NOSTALGIC FIDOS
       </h1>
       </center>
       </>
