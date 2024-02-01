@@ -89,7 +89,7 @@
 }
 
 
-.socialIcons{
+.socialIcons {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -97,6 +97,9 @@
     height: 35px;
     column-gap: 1rem;
     margin-block: 20px;   
+}
+.socialIcons a img{
+    height: 35px;
 }
 @media (max-width:1540px){
 

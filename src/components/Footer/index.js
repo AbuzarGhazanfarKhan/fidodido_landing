@@ -72,10 +72,10 @@ function Foorter() {
             </div>
             <div>
               {" "}
-              <Button onClick={clickPopup}>
+              <a  href="https://discord.com/invite/f3xTsPnsqN"   target="_blank">   <Button href="https://discord.com/invite/f3xTsPnsqN">
                 {" "}
                 <span>JOIN THE CLUB</span>{" "}
-              </Button>{" "}
+              </Button>{" "} </a>
             </div>
             <div>
               {" "}

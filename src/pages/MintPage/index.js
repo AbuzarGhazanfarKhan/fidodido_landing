@@ -5,6 +5,7 @@ import logo from "../../assets/Logo/fido-dido-logo-white.png";
 import opensea1 from "../../assets/Logo/opensea-logo.svg";
 import discord from "../../assets/Logo/black-discord-icon-27.jpg";
 import icon1 from "../../assets/mintPageIcons/mintIcon1.png";
+import icon2 from "../../assets/mintPageIcons/mintIcon2.png";
 import opensea from "../../assets/mintPageIcons/opensea1.png";
 import etherscan from "../../assets/mintPageIcons/etherscan.png";
 import "./mintPage.css";
@@ -199,7 +200,7 @@ function MintPage() {
                   flexDirection: "column",
                 }}
               >
-                <img src={icon1} className="fidoIcon" alt="" srcset="" />
+                <img src={icon2} className="fidoIcon" alt="" srcset="" />
                 <button
                   className={
                     no_of_NFTs.toString() === "1" ? "active" : "notActive"
@@ -270,7 +271,7 @@ function MintPage() {
         <div className="fidoRight">
           <center>
             {" "}
-            <h1 style={{letterSpacing:"2px"}}> {supply?.toString()}/7777</h1>
+            <h1 style={{letterSpacing:"2px",fontSize:"35px"}}> {supply?.toString()}/7777</h1>
           </center>
           <center>
             <img
@@ -285,9 +286,14 @@ function MintPage() {
              
             }}
           >
-            <img src={opensea1} alt="X Logo" />
-            <img src={x_logo} alt="X Logo" />
-            <img src={discord} alt="X Logo" />
+              <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
+           <img  src={opensea1} alt="X Logo" /></a>
+           <a  href="https://x.com/0xfidodido"
+                target="_blank"
+                rel="noopener noreferrer"> <img src={x_logo} alt="X Logo" /></a>
+           <a  href="https://discord.gg/f3xTsPnsqN"
+                target="_blank"
+                rel="noopener noreferrer"> <img src={discord} alt="X Logo" /></a>
           </div>
         </div>
       </div>

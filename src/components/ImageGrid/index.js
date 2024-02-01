@@ -9,10 +9,14 @@ import waitlist from '@zootools/waitlist-js'
 import Countdown from "../Countdown"
 // import opensea from "../../assets/Logo/Opensea NFT Marketplace.svg"
 import { useNavigate } from "react-router-dom";
+import gif_black from '../../assets/images/9.gif'
 
 
 
 const ImageGrid = ({ images,mobileImages }) => {
+
+  const imageArray = Array(102).fill(gif_black);
+  const gifArray = Array(15).fill(gif_black);
   const clickPopup = (event) => {
     event.preventDefault();
   
@@ -31,7 +35,7 @@ const ImageGrid = ({ images,mobileImages }) => {
 
   { isMobile ?  
   <Grid container spacing={3}>
-      {mobileImages.map((image, index) => (
+      {gifArray.map((image, index) => (
         <Grid item xs={4} key={index}>
           <Paper style={{ 
             // height: '100%', 
@@ -50,7 +54,7 @@ const ImageGrid = ({ images,mobileImages }) => {
        <a  > <Button onClick={()=> navigate('/mint')}  className='Button' style={{minWidth:"76px",fontSize:"8px",backgroundColor:"#009016",color:"white"}} ><Countdown/></Button></a>
       </Grid>
       <Grid item xs={4}>
-        <Button  className='Button' style={{minWidth:"76px",fontSize:"8px"}} onClick={clickPopup}>Join The Club</Button>
+       <a  href="https://discord.com/invite/f3xTsPnsqN"   target="_blank"> <Button  className='Button' style={{minWidth:"76px",fontSize:"8px"}} >Join The Club</Button></a>
       </Grid>
       <Grid item xs={4}>
        <a   href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
@@ -58,7 +62,7 @@ const ImageGrid = ({ images,mobileImages }) => {
       </Grid>
     </Grid>
     :   <Grid className='ImgGrid' container justifyContent={'center'} spacing={2}  height={"100%"} style={{position: 'relative'}}>
-         {images.map((image, index) => (
+         {imageArray.map((image, index) => (
         <Grid item  key={index}>
        <Paper className='paper' style={{ 
           height: '97px', 

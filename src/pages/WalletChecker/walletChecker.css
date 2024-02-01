@@ -246,7 +246,7 @@ height: 25%;
        }
        .search-bar{
         width: 100vw;
-        height: 30%;
+        height: 40%;;
         font-size: inherit;
             }
 
@@ -276,7 +276,7 @@ height: 25%;
    @media screen and (max-width: 378px) {
 
     .search-bar{
-        height: 47%;
+        height: 41%;
     }
     .submitButton
     {
@@ -285,4 +285,11 @@ height: 25%;
 
    }
 
- 
+   @media screen and (max-width: 395px) {
+    .search-bar
+  {
+      width: 100vw;
+      height: 40%;
+      font-size: inherit;
+    }
+  }
