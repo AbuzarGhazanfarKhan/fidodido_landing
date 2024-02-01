@@ -42,7 +42,7 @@ function MintPage() {
     isError: phaseError,
     isLoading: phaseLoading,
   } = useContractRead({
-    address: "0x5E8AC1f633915372282672a40962E74afC4CF4D1",
+    address: "0x93A10C9F439309779ed9eC227ec0EB942A339F1e",
     abi,
     functionName: "getIsPrivatePhase",
     args: [],
@@ -53,14 +53,14 @@ function MintPage() {
     isError: supplyError,
     isLoading: supplyLoading,
   } = useContractRead({
-    address: "0x5E8AC1f633915372282672a40962E74afC4CF4D1",
+    address: "0x93A10C9F439309779ed9eC227ec0EB942A339F1e",
     abi,
     functionName: "totalSupply",
     args: [],
     watch: true, // optional
   });
   const { config, error } = usePrepareContractWrite({
-    address: "0x5E8AC1f633915372282672a40962E74afC4CF4D1",
+    address: "0x93A10C9F439309779ed9eC227ec0EB942A339F1e",
     abi,
     functionName: "safeMint",
     args: [no_of_NFTs, address, proof],
@@ -112,7 +112,10 @@ function MintPage() {
   useEffect(() => {
     console.log(config?.data);
   }, [config?.data]);
-
+  useEffect(() => {
+    if (MintData && MintData.hash) {
+      setShowsModal(true)
+}});
   const {
     data: MintData,
     isLoading: MintLoading,
@@ -263,7 +266,7 @@ function MintPage() {
               }}
             >
               <img src={opensea} alt="X Logo" />
-              <img src={etherscan} alt="X Logo" />
+              <img hre src={etherscan} alt="X Logo" />
             </div>
           </center>
         </div>
