@@ -72,7 +72,7 @@ function Foorter() {
             </div>
             <div>
               {" "}
-              <a  href="https://discord.com/invite/f3xTsPnsqN"   target="_blank">   <Button href="https://discord.com/invite/f3xTsPnsqN">
+              <a  href="https://discord.com/invite/f3xTsPnsqN"   target="_blank">   <Button >
                 {" "}
                 <span>JOIN THE CLUB</span>{" "}
               </Button>{" "} </a>
