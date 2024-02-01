@@ -31,7 +31,7 @@ function MintPage() {
   const [price, setPrice] = useState("");
   const [hash, setHash] = useState("");
   const [proof, setProof] = useState([]);
-
+  const [showModal, setShowsModal] = useState(false);
   const { isConnected, address } = useAccount();
 
   const handleButtonClick = (value) => {
@@ -42,7 +42,7 @@ function MintPage() {
     isError: phaseError,
     isLoading: phaseLoading,
   } = useContractRead({
-    address: "0x7d0680a4611993cFc289DDFD714556A959226a91",
+    address: "0x45d8f8b1e0093Bf3E3739BaC91bd33036a241062",
     abi,
     functionName: "getIsPrivatePhase",
     args: [],
@@ -53,14 +53,14 @@ function MintPage() {
     isError: supplyError,
     isLoading: supplyLoading,
   } = useContractRead({
-    address: "0x7d0680a4611993cFc289DDFD714556A959226a91",
+    address: "0x45d8f8b1e0093Bf3E3739BaC91bd33036a241062",
     abi,
     functionName: "totalSupply",
     args: [],
     watch: true, // optional
   });
   const { config, error } = usePrepareContractWrite({
-    address: "0x7d0680a4611993cFc289DDFD714556A959226a91",
+    address: "0x45d8f8b1e0093Bf3E3739BaC91bd33036a241062",
     abi,
     functionName: "safeMint",
     args: [no_of_NFTs, address, proof],
@@ -296,15 +296,26 @@ function MintPage() {
                 rel="noopener noreferrer"> <img src={discord} alt="X Logo" /></a>
           </div>
         </div>
+        {showModal ? (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={() => {setShowsModal(false)}}>X</span>
+              <div className='modalSection'>
+              
+                <div className="right-section">
+                  <p> MINT IN PROGRESS PLEASE VIEW YOUR TRANSACTION HERE:</p>
+                    <a className="transaction" style={{color:"#009016", textDecoration:"none"}} href={`https://sepolia.etherscan.io/tx/${MintData?.hash}` }> {MintData?.hash}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+ ):null}
       </div>
+
+      
     </>
   );
+  
 }
 
 export default MintPage;
-
-// display: flex;
-// flex-direction: row;
-// place-content: center;
-// height: 30px;
-// column-gap: 1rem;
