@@ -42,7 +42,7 @@ function MintPage() {
     isError: phaseError,
     isLoading: phaseLoading,
   } = useContractRead({
-    address: "0x45d8f8b1e0093Bf3E3739BaC91bd33036a241062",
+    address: "0x5E8AC1f633915372282672a40962E74afC4CF4D1",
     abi,
     functionName: "getIsPrivatePhase",
     args: [],
@@ -53,14 +53,14 @@ function MintPage() {
     isError: supplyError,
     isLoading: supplyLoading,
   } = useContractRead({
-    address: "0x45d8f8b1e0093Bf3E3739BaC91bd33036a241062",
+    address: "0x5E8AC1f633915372282672a40962E74afC4CF4D1",
     abi,
     functionName: "totalSupply",
     args: [],
     watch: true, // optional
   });
   const { config, error } = usePrepareContractWrite({
-    address: "0x45d8f8b1e0093Bf3E3739BaC91bd33036a241062",
+    address: "0x5E8AC1f633915372282672a40962E74afC4CF4D1",
     abi,
     functionName: "safeMint",
     args: [no_of_NFTs, address, proof],
