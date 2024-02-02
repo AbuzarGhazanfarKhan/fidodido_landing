@@ -32,6 +32,7 @@ function MintPage() {
   const [hash, setHash] = useState("");
   const [proof, setProof] = useState([]);
   const [showModal, setShowsModal] = useState(false);
+  const [contractAddress, setContractAddress] = useState(false);
   const { isConnected, address } = useAccount();
 
   const handleButtonClick = (value) => {
@@ -42,7 +43,7 @@ function MintPage() {
     isError: phaseError,
     isLoading: phaseLoading,
   } = useContractRead({
-    address: "0x93A10C9F439309779ed9eC227ec0EB942A339F1e",
+    address: contractAddress,
     abi,
     functionName: "getIsPrivatePhase",
     args: [],
@@ -53,14 +54,14 @@ function MintPage() {
     isError: supplyError,
     isLoading: supplyLoading,
   } = useContractRead({
-    address: "0x93A10C9F439309779ed9eC227ec0EB942A339F1e",
+    address: contractAddress,
     abi,
     functionName: "totalSupply",
     args: [],
     watch: true, // optional
   });
   const { config, error } = usePrepareContractWrite({
-    address: "0x93A10C9F439309779ed9eC227ec0EB942A339F1e",
+    address: contractAddress,
     abi,
     functionName: "safeMint",
     args: [no_of_NFTs, address, proof],
@@ -73,6 +74,23 @@ function MintPage() {
   // const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
   //  hash: txHash,
   // });
+useEffect(()=>{
+ getContract()
+ console.log(contractAddress);
+},[])
+
+const getContract = async ()=>{
+  try{
+  const response = await axios.get(
+    `https://qr-code-api.oasisx.world/contract`
+  );
+  
+  setContractAddress(response.data?.data?.toString())
+}
+catch (error) {
+  console.error(`Error fetching wallet status: ${error}`);
+}
+}
 
   const fetchWalletStatus = async () => {
     try {
@@ -93,6 +111,7 @@ function MintPage() {
   useEffect(() => {
     setPrivatePhase(phase);
     setTotalSupply(supply);
+    console.log(contractAddress);
     console.log(supply);
     console.log(phase);
     console.log(supplyLoading);
@@ -112,15 +131,18 @@ function MintPage() {
   useEffect(() => {
     console.log(config?.data);
   }, [config?.data]);
-  useEffect(() => {
-    if (MintData && MintData.hash) {
-      setShowsModal(true)
-}});
+
   const {
     data: MintData,
     isLoading: MintLoading,
     write,
   } = useContractWrite(config);
+
+  useEffect(() => {
+    if (MintData && MintData?.hash) {
+      setHash(MintData?.hash);
+    }
+  }, [MintData]);
 
   console.log("-----------------------------------", address);
   const Mint = async () => {
@@ -154,7 +176,7 @@ function MintPage() {
       }
     } else {
       const txHash = await write();
-      setHash(txHash);
+      setShowsModal(true);
       console.log("Transaction hash: ", txHash);
     }
     console.log(hash);
@@ -166,107 +188,97 @@ function MintPage() {
         <div className="fidoLeft">
           <center>
             {" "}
-            <img
-            className="fidoLogo"
-              style={{}}
-              src={logo}
-              alt=""
-            />
-            <h3 style={{ color: "white",  fontWeight: "light" }}>
+            <img className="fidoLogo" style={{}} src={logo} alt="" />
+            <h3 style={{ color: "white",  }}>
               {" "}
               FIDO DIDO IS A COLLECTION OF <b>
                 {" "}
                 7,777 NOSTALGIC UNIQUE FIDOS
               </b>{" "}
-              STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT{" "}
-              <b>90S ERA</b>, COMPLETE WITH COOL{" "}
+              STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT
+              <b> 90S ERA</b>, COMPLETE WITH COOL {" "}
               <b>COMMERCIAL & GAMING RIGHTS</b>
             </h3>
             <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
               PrivatePhase ? "Private Sale" : `Public Sale`
             } `}</h4>
-
             <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignContent: "center",
-                gap: "1rem",
-              }}
-            >
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  flexDirection: "column",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  gap: "1rem",
                 }}
               >
-                <img src={icon2} className="fidoIcon" alt="" srcset="" />
-                <button
-                  className={
-                    no_of_NFTs.toString() === "1" ? "active" : "notActive"
-                  }
-                  onClick={() => handleButtonClick(1)}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  }}
                 >
-                  {" "}
-                  <b> 1 NFT</b>{" "}
-                </button>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  flexDirection: "column",
-                }}
-              >
-                <img src={icon1} className="fidoIcon" alt="" srcset="" />
-                <button
-                  className={
-                    no_of_NFTs.toString() === "2" ? "active" : "notActive"
-                  }
-                  onClick={() => handleButtonClick(2)}
-                >
-                  {" "}
-                  <b> 2 NFTs</b>{" "}
-                </button>
-              </div>
-            </div>
-
-            <div>
-              {!isConnected ? (
-                <Connect />
-              ) : (
-                <a>
-                  <Button
-                    className="journey"
-                    style={{
-                      backgroundColor: "rgb(23, 152, 23)",
-                      color: "white",
-                      cursor: "pointer",
-                      
-                      borderRadius: "10px",
-                      marginBlock: "25px",
-                    }}
-                    onClick={Mint}
+                  <img src={icon2} className="fidoIcon" alt="" srcset="" />
+                  <button
+                    className={
+                      no_of_NFTs.toString() === "1" ? "active" : "notActive"
+                    }
+                    onClick={() => handleButtonClick(1)}
                   >
                     {" "}
-                    {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-                    Mint
-                  </Button>{" "}
-                </a>
-              )}
+                    <b> 1 NFT</b>{" "}
+                  </button>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <img src={icon1} className="fidoIcon" alt="" srcset="" />
+                  <button
+                    className={
+                      no_of_NFTs.toString() === "2" ? "active" : "notActive"
+                    }
+                    onClick={() => handleButtonClick(2)}
+                  >
+                    {" "}
+                    <b> 2 NFTs</b>{" "}
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                {!isConnected ? (
+                  <Connect />
+                ) : (
+                  <a>
+                    <Button
+                      className="journey"
+                      style={{
+                        backgroundColor: "rgb(23, 152, 23)",
+                        color: "white",
+                        cursor: "pointer",
+
+                        borderRadius: "10px",
+                        marginBlock: "25px",
+                      }}
+                      onClick={Mint}
+                    >
+                      {" "}
+                      {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
+                      Mint
+                    </Button>{" "}
+                  </a>
+                )}
+              </div>
             </div>
-            </div>
-            <div
-            className="mintIcons"
-              style={{
-               
-              }}
-            >
-              <img src={opensea} alt="X Logo" />
-              <img hre src={etherscan} alt="X Logo" />
+            <div className="mintIcons" style={{}}>
+             <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items"
+              target="_blank"> <img src={opensea} alt="X Logo" /> </a>
+             <a href={`https://sepolia.etherscan.io/address/${contractAddress}`}> <img hre src={etherscan} alt="X Logo" /> </a>
             </div>
           </center>
         </div>
@@ -274,7 +286,10 @@ function MintPage() {
         <div className="fidoRight">
           <center>
             {" "}
-            <h1 style={{letterSpacing:"2px",fontSize:"35px"}}> {supply?.toString()}/7777</h1>
+            <h1 style={{ letterSpacing: "2px", fontSize: "35px" }}>
+              {" "}
+              {supply?.toString()}/7777
+            </h1>
           </center>
           <center>
             <img
@@ -283,42 +298,64 @@ function MintPage() {
               alt="mintPage_rotation gif"
             />{" "}
           </center>
-          <div
-          className="socialIcons"
-            style={{
-             
-            }}
-          >
-              <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
-           <img  src={opensea1} alt="X Logo" /></a>
-           <a  href="https://x.com/0xfidodido"
-                target="_blank"
-                rel="noopener noreferrer"> <img src={x_logo} alt="X Logo" /></a>
-           <a  href="https://discord.gg/f3xTsPnsqN"
-                target="_blank"
-                rel="noopener noreferrer"> <img src={discord} alt="X Logo" /></a>
+          <div className="socialIcons" style={{}}>
+            {/* <a
+              
+            >
+              <img src={opensea1} alt="X Logo" />
+            </a> */}
+            <a
+              href="https://x.com/0xfidodido"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              <img src={x_logo} alt="X Logo" />
+            </a>
+            <a
+              href="https://discord.gg/f3xTsPnsqN"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              <img src={discord} alt="X Logo" />
+            </a>
           </div>
         </div>
         {showModal ? (
           <div className="modal">
             <div className="modal-content">
-              <span className="close" onClick={() => {setShowsModal(false)}}>X</span>
-              <div className='modalSection'>
-              
+              <span
+                className="close"
+                onClick={() => {
+                  setShowsModal(false);
+                }}
+              >
+                X
+              </span>
+              <div className="modalSection">
                 <div className="right-section">
-                  <p> MINT IN PROGRESS PLEASE VIEW YOUR TRANSACTION HERE:</p>
-                    <a className="transaction" style={{color:"#009016", textDecoration:"none"}} href={`https://sepolia.etherscan.io/tx/${MintData?.hash}` }> {MintData?.hash}</a>
+                 <center> <p> MINT IN PROGRESS PLEASE VIEW YOUR TRANSACTION HERE:</p></center>
+                  <a
+                    className="transaction"
+                    style={{ color: "#009016", textDecoration: "none" }}
+                    href={`https://sepolia.etherscan.io/tx/${MintData?.hash}`}
+                    target="_blank"
+                  >
+                    {" "}
+                    <span style={{ maxWidth: "70vw" }}>
+                      {" "}
+                      {MintData?.hash}{" "}
+                    </span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
- ):null}
+        ) : null}
       </div>
-
-      
     </>
   );
-  
 }
 
 export default MintPage;

@@ -47,7 +47,7 @@ function Foorter() {
           <div className="text" >
             {" "}
             <h2>
-              Phase II: 7777 <br /> NOSTALGIC FIDOS
+            ENTER MOON PHASE II: 7777 <br /> COOL FIDOS
             </h2>{" "}
           </div>
           <div

@@ -80,11 +80,12 @@ const ImageGrid = ({ images,mobileImages }) => {
 
     { isMobile &&  <center>
       <br />
-      <div className='footer' style={{fontSize:"12px"}}>
+      <div className='footer' style={{fontSize:"8px"}}>
               {" "}
-              <Button  onClick={()=>navigate("/walletChecker")}>
+              <Button style={{maxWidth: "92px",
+  minWidth: "94px",fontSize:"8px"}}  onClick={()=>navigate("/walletChecker")}>
                 {" "}
-                <span>Wallet Checker</span>{" "}
+                <span><b> Wallet Checker</b></span>{" "}
               </Button>{" "}
             </div>
       

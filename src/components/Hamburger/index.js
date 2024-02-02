@@ -131,6 +131,14 @@ const HamburgerMenu = () => {
               />
               </a>
             </div>
+            
+          </div>
+         <div style={{fontSize:"10px"}}>
+          <br />
+           <b> TERMS OF USE</b>
+          <br />
+         
+          <b>  IP RIGHTS</b>
           </div>
           </center>
       </List>

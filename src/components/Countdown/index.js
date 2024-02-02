@@ -42,7 +42,7 @@ function CountdownTimer() {
   // If the time left is less than or equal to 0, render "Phase II 
 // Cooking"
   if (timeLeft.hours <= 0 && timeLeft.minutes <= 0 && timeLeft.seconds <= 0) {
-    return <div>Start Journey</div>;
+    return <div>START JOURNEY</div>;
   }
 
   // Otherwise, render the countdown timer
