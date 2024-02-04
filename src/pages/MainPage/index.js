@@ -31,11 +31,11 @@ function MainPage() {
         >
           {" "}
           <Hamburger />{" "}
-          <img className="logoMob" width={"200px"} src={logo} alt="Logo" />{" "}
+          <img className="logoMob" width={"190px"} src={logo} alt="Logo" />{" "}
         </div>
        
        <center> <h1 style={{fontSize:"20px",marginTop:"22px"}}>
-       Phase II: 7777  NOSTALGIC FIDOS
+       ENTER MOON PHASE: 7777 COOL FIDOS
       </h1>
       </center>
       </>

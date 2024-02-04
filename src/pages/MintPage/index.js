@@ -191,13 +191,14 @@ catch (error) {
             <img className="fidoLogo" style={{}} src={logo} alt="" />
             <h3 style={{ color: "white",  }}>
               {" "}
-              FIDO DIDO IS A COLLECTION OF <b>
+              
+             <b> FIDO DIDO</b> IS A COLLECTION OF <b>
                 {" "}
-                7,777 NOSTALGIC UNIQUE FIDOS
+                7,777 UNIQUE FIDOS
               </b>{" "}
               STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT
               <b> 90S ERA</b>, COMPLETE WITH COOL {" "}
-              <b>COMMERCIAL & GAMING RIGHTS</b>
+              <b>COMMERCIAL RIGHTS</b>
             </h3>
             <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
               PrivatePhase ? "Private Sale" : `Public Sale`

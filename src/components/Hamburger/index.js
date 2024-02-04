@@ -45,7 +45,7 @@ const HamburgerMenu = () => {
           <div >
             {" "}
             <h2 style={{marginInline:"6px"}}>
-           <center>      Phase II: 7777 <br /> NOSTALGIC FIDOS </center>
+           <center>      ENTER MOON PHASE: 7777 <br /> COOL FIDOS </center>
             </h2>{" "}
           </div>
    

@@ -221,7 +221,7 @@ padding-inline: 6px;
     }
 }
 
-@media screen and (max-width: 398px) {
+@media screen and (max-width: 479px) {
 
     .journey{
         width: 305px;
