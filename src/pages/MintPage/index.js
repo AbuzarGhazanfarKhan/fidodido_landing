@@ -14,15 +14,12 @@ import {
   useContractWrite,
   useContractRead,
   usePrepareContractWrite,
-  useWaitForTransactionReceipt,
   useAccount,
 } from "wagmi";
 import abi from "../../abi/erc721.json";
 import { ethers } from "ethers";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-
-// import { useReadContract } from 'wagmi'
 
 function MintPage() {
   const [no_of_NFTs, set_no_of_NFTs] = useState(1);
@@ -34,25 +31,30 @@ function MintPage() {
   const [showModal, setShowsModal] = useState(false);
   const [contractAddress, setContractAddress] = useState(false);
   const { isConnected, address } = useAccount();
+  const [reload, setReload] = useState(false)
 
   const handleButtonClick = (value) => {
     set_no_of_NFTs(value);
   };
+
   const {
     data: phase,
     isError: phaseError,
     isLoading: phaseLoading,
+    refetch: phaseRefetch,
   } = useContractRead({
     address: contractAddress,
     abi,
     functionName: "getIsPrivatePhase",
     args: [],
-    watch: true, // optional
+    watch: true,
   });
+
   const {
     data: supply,
     isError: supplyError,
     isLoading: supplyLoading,
+    refetch: SupplyRefetch,
   } = useContractRead({
     address: contractAddress,
     abi,
@@ -60,7 +62,8 @@ function MintPage() {
     args: [],
     watch: true, // optional
   });
-  const { config, error } = usePrepareContractWrite({
+
+  const { config, error, refetch } = usePrepareContractWrite({
     address: contractAddress,
     abi,
     functionName: "safeMint",
@@ -70,27 +73,34 @@ function MintPage() {
 
   const txHash = config?.data;
 
-  // // Use the useWaitForTransactionReceipt hook to wait for the transaction receipt
-  // const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
-  //  hash: txHash,
-  // });
-useEffect(()=>{
- getContract()
- console.log(contractAddress);
-},[])
+  useEffect(() => {
+    console.log("1")
+    refetch()
+  }, [showModal, no_of_NFTs, address, reload])
 
-const getContract = async ()=>{
-  try{
-  const response = await axios.get(
-    `https://qr-code-api.oasisx.world/contract`
-  );
-  
-  setContractAddress(response.data?.data?.toString())
-}
-catch (error) {
-  console.error(`Error fetching wallet status: ${error}`);
-}
-}
+  useEffect(() => {
+    console.log("2")
+    phaseRefetch()
+    SupplyRefetch()
+  }, [showModal, no_of_NFTs, address, reload])
+
+  useEffect(() => {
+    getContract()
+    console.log("contractAddress",contractAddress);
+  }, [])
+
+  const getContract = async () => {
+    try {
+      const response = await axios.get(
+        `https://qr-code-api.oasisx.world/contract`
+      );
+
+      setContractAddress(response.data?.data?.toString())
+    }
+    catch (error) {
+      console.error(`Error fetching wallet status: ${error}`);
+    }
+  }
 
   const fetchWalletStatus = async () => {
     try {
@@ -111,10 +121,7 @@ catch (error) {
   useEffect(() => {
     setPrivatePhase(phase);
     setTotalSupply(supply);
-    console.log(contractAddress);
-    console.log(supply);
-    console.log(phase);
-    console.log(supplyLoading);
+    console.log("phase", phase)
     if (PrivatePhase) {
       if (fetchWalletStatus()) {
         setPrice(ethers.parseEther((0.03 * no_of_NFTs).toString()));
@@ -122,15 +129,8 @@ catch (error) {
     } else {
       setPrice(ethers.parseEther((0.04 * no_of_NFTs).toString()));
     }
-  }, [useContractRead, usePrepareContractWrite, no_of_NFTs, address]);
+  }, [showModal, no_of_NFTs, address, reload]);
 
-  useEffect(() => {
-    console.log(supply);
-    console.log(phase);
-  }, [supply, phase]);
-  useEffect(() => {
-    console.log(config?.data);
-  }, [config?.data]);
 
   const {
     data: MintData,
@@ -144,8 +144,8 @@ catch (error) {
     }
   }, [MintData]);
 
-  console.log("-----------------------------------", address);
   const Mint = async () => {
+    setReload(true)
     if (error) {
       if (error.message.includes("Mint limit reached")) {
         alert("Your Mint limit has been reached. Please try again later");
@@ -175,11 +175,9 @@ catch (error) {
         console.log("An error occurred: ", error.message);
       }
     } else {
-      const txHash = await write();
+      await write();
       setShowsModal(true);
-      console.log("Transaction hash: ", txHash);
     }
-    console.log(hash);
   };
 
   return (
