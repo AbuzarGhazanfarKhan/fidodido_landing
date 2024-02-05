@@ -82,7 +82,7 @@ function MintPage() {
     // console.log("2");
     phaseRefetch();
     SupplyRefetch();
-  }, [showModal, no_of_NFTs, address, reload]);
+  }, [showModal, no_of_NFTs, address, reload,phase]);
 
   useEffect(() => {
     getContract();
