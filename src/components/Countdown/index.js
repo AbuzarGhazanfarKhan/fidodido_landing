@@ -6,7 +6,7 @@ function CountdownTimer({ onFinish }) {
     const now = new Date();
 
     // Set the target date to 7 PM EST on 7th December 2023
-    const targetDate = new Date('February 1, 2024 00:00:00 UTC');
+    const targetDate = new Date('February 12, 2024 00:00:00 UTC');
 
     // Get the difference between the target date and the current date (in seconds)
     const differenceInSeconds = Math.floor((targetDate - now) / 1000);

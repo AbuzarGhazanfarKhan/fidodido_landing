@@ -23,7 +23,7 @@ import axios from "axios";
 
 function MintPage() {
   const [no_of_NFTs, set_no_of_NFTs] = useState(1);
-  const [PrivatePhase, setPrivatePhase] = useState(true);
+  const [PrivatePhase, setPrivatePhase] = useState("");
   const [TotalSupply, setTotalSupply] = useState(0);
   const [price, setPrice] = useState("");
   const [hash, setHash] = useState("");
@@ -76,7 +76,7 @@ function MintPage() {
   useEffect(() => {
     // console.log("1");
     refetch();
-  }, [showModal, no_of_NFTs, address, reload]);
+  }, [showModal, no_of_NFTs, address, reload, phase]);
 
   useEffect(() => {
     // console.log("2");
@@ -196,9 +196,9 @@ function MintPage() {
               STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT
               <b> 90S ERA</b>, COMPLETE WITH COOL <b>COMMERCIAL RIGHTS</b>
             </h3>
-            {isConnected && (
+            {isConnected && phase && (
               <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
-                PrivatePhase ? "Private Sale" : `Public Sale`
+                phase ? "Private Sale" : `Public Sale`
               } `}</h4>
             )}
             <div>
