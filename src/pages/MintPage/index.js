@@ -128,9 +128,13 @@ function MintPage() {
     } else {
       setPrice(ethers.parseEther((0.04 * no_of_NFTs).toString()));
     }
-  }, [showModal, no_of_NFTs, address, reload]);
+  }, [showModal, no_of_NFTs, address, reload,phase]);
 
-  
+  useEffect(()=>{
+     setPrivatePhase(phase);
+     console.log(phase);
+  },[phase])
+
   const {
     data: MintData,
     isLoading: MintLoading,
@@ -144,7 +148,7 @@ function MintPage() {
   }, [MintData]);
 
   const Mint = async () => {
-    setReload(true)
+    setReload(true);
     if (error) {
       if (error.message.includes("Mint limit reached")) {
         alert("Your Mint limit has been reached. Please try again later");
@@ -192,9 +196,11 @@ function MintPage() {
               STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT
               <b> 90S ERA</b>, COMPLETE WITH COOL <b>COMMERCIAL RIGHTS</b>
             </h3>
-          {isConnected &&  <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
-              PrivatePhase ? "Private Sale" : `Public Sale`
-            } `}</h4>}
+            {isConnected && (
+              <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
+                PrivatePhase ? "Private Sale" : `Public Sale`
+              } `}</h4>
+            )}
             <div>
               <div
                 style={{

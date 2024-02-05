@@ -21,7 +21,7 @@ const HamburgerMenu = () => {
     setIsButtonDisabled(false);
  };
 
- 
+
   const clickPopup = (event) => {
     event.preventDefault();
   
@@ -86,6 +86,13 @@ const HamburgerMenu = () => {
             </div>
             <div>
               {" "}
+              <div style={{width:"100%",marginBottom:"5px",color:"white"}} onClick={()=> navigate('/walletChecker')}>
+                {" "}
+                Wallet Checker{" "}
+              </div>{" "}
+            </div>
+            <div>
+              {" "}
               <a
                 href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
                 target="_blank"
@@ -141,7 +148,7 @@ const HamburgerMenu = () => {
             </div>
             
           </div>
-         <div style={{fontSize:"10px"}}>
+         <div style={{fontSize:"10px",color:"gray"}}>
           <br />
            <b> TERMS OF USE</b>
           <br />
