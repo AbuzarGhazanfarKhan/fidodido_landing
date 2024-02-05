@@ -14,6 +14,14 @@ import { useNavigate } from "react-router-dom";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+ const handleCountdownFinish = () => {
+    setIsButtonDisabled(false);
+ };
+
+ 
   const clickPopup = (event) => {
     event.preventDefault();
   
@@ -66,7 +74,7 @@ const HamburgerMenu = () => {
                 onClick={()=> navigate('/mint')}
               >
                 {" "}
-            <CountdownTimer/>
+            <CountdownTimer onFinish={handleCountdownFinish}/>
               </div>{" "}
             </div>
             <div>

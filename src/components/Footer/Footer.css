@@ -72,7 +72,8 @@ hr{
     }
 } */
 @media (max-width:1624px){
-    .text{  margin-inline: 56px;}
+    .text{      margin-inline: 3px;
+        font-size: 13px;}
 }
 @media (max-width:1501px){
     h2{
@@ -86,7 +87,7 @@ hr{
     .footer{
         max-width: 97vw;
     }
-    .text{  margin-inline: 25px;}
+    .text{  margin-inline: 14px;}
     h2{
         font-size: 16px;
     }

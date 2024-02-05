@@ -26,6 +26,12 @@ function Foorter() {
   //   }
   // };
 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+ const handleCountdownFinish = () => {
+    setIsButtonDisabled(false);
+ };
+
   const isMobile = useMediaQuery({query:'(max-width:600px)'});
   const clickPopup = (event) => {
     event.preventDefault();
@@ -62,11 +68,11 @@ function Foorter() {
               {" "}
              <a > <Button onClick={()=> navigate('/mint')} className=" rotate-button journey"
                 style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"pointer" }}
-                
+                disabled={isButtonDisabled}
               >
                 {" "}
                 {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-             <Countdown/>
+             <Countdown onFinish={handleCountdownFinish}/>
               </Button>{" "}
               </a>
             </div>

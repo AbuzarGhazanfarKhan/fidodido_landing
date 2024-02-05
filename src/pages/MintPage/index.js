@@ -31,7 +31,7 @@ function MintPage() {
   const [showModal, setShowsModal] = useState(false);
   const [contractAddress, setContractAddress] = useState(false);
   const { isConnected, address } = useAccount();
-  const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false);
 
   const handleButtonClick = (value) => {
     set_no_of_NFTs(value);
@@ -74,20 +74,20 @@ function MintPage() {
   const txHash = config?.data;
 
   useEffect(() => {
-    console.log("1")
-    refetch()
-  }, [showModal, no_of_NFTs, address, reload])
+    // console.log("1");
+    refetch();
+  }, [showModal, no_of_NFTs, address, reload]);
 
   useEffect(() => {
-    console.log("2")
-    phaseRefetch()
-    SupplyRefetch()
-  }, [showModal, no_of_NFTs, address, reload])
+    // console.log("2");
+    phaseRefetch();
+    SupplyRefetch();
+  }, [showModal, no_of_NFTs, address, reload]);
 
   useEffect(() => {
-    getContract()
-    console.log("contractAddress",contractAddress);
-  }, [])
+    getContract();
+    // console.log("contractAddress", contractAddress);
+  }, []);
 
   const getContract = async () => {
     try {
@@ -95,12 +95,11 @@ function MintPage() {
         `https://qr-code-api.oasisx.world/contract`
       );
 
-      setContractAddress(response.data?.data?.toString())
-    }
-    catch (error) {
+      setContractAddress(response.data?.data?.toString());
+    } catch (error) {
       console.error(`Error fetching wallet status: ${error}`);
     }
-  }
+  };
 
   const fetchWalletStatus = async () => {
     try {
@@ -121,7 +120,7 @@ function MintPage() {
   useEffect(() => {
     setPrivatePhase(phase);
     setTotalSupply(supply);
-    console.log("phase", phase)
+    // console.log("phase", phase);
     if (PrivatePhase) {
       if (fetchWalletStatus()) {
         setPrice(ethers.parseEther((0.03 * no_of_NFTs).toString()));
@@ -131,7 +130,7 @@ function MintPage() {
     }
   }, [showModal, no_of_NFTs, address, reload]);
 
-
+  
   const {
     data: MintData,
     isLoading: MintLoading,
@@ -187,20 +186,15 @@ function MintPage() {
           <center>
             {" "}
             <img className="fidoLogo" style={{}} src={logo} alt="" />
-            <h3 style={{ color: "white",  }}>
+            <h3 style={{ color: "white" }}>
               {" "}
-              
-             <b> FIDO DIDO</b> IS A COLLECTION OF <b>
-                {" "}
-                7,777 UNIQUE FIDOS
-              </b>{" "}
+              <b> FIDO DIDO</b> IS A COLLECTION OF <b> 7,777 UNIQUE FIDOS</b>{" "}
               STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT
-              <b> 90S ERA</b>, COMPLETE WITH COOL {" "}
-              <b>COMMERCIAL RIGHTS</b>
+              <b> 90S ERA</b>, COMPLETE WITH COOL <b>COMMERCIAL RIGHTS</b>
             </h3>
-            <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
+          {isConnected &&  <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
               PrivatePhase ? "Private Sale" : `Public Sale`
-            } `}</h4>
+            } `}</h4>}
             <div>
               <div
                 style={{
@@ -275,9 +269,19 @@ function MintPage() {
               </div>
             </div>
             <div className="mintIcons" style={{}}>
-             <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items"
-              target="_blank"> <img src={opensea} alt="X Logo" /> </a>
-             <a href={`https://sepolia.etherscan.io/address/${contractAddress}`}> <img hre src={etherscan} alt="X Logo" /> </a>
+              <a
+                href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items"
+                target="_blank"
+              >
+                {" "}
+                <img src={opensea} alt="X Logo" />{" "}
+              </a>
+              <a
+                href={`https://sepolia.etherscan.io/address/${contractAddress}`}
+              >
+                {" "}
+                <img hre src={etherscan} alt="X Logo" />{" "}
+              </a>
             </div>
           </center>
         </div>
@@ -334,7 +338,10 @@ function MintPage() {
               </span>
               <div className="modalSection">
                 <div className="right-section">
-                 <center> <p> MINT IN PROGRESS PLEASE VIEW YOUR TRANSACTION HERE:</p></center>
+                  <center>
+                    {" "}
+                    <p> MINT IN PROGRESS PLEASE VIEW YOUR TRANSACTION HERE:</p>
+                  </center>
                   <a
                     className="transaction"
                     style={{ color: "#009016", textDecoration: "none" }}
@@ -342,10 +349,7 @@ function MintPage() {
                     target="_blank"
                   >
                     {" "}
-                    <span style={{ maxWidth: "70vw" }}>
-                      {" "}
-                      {MintData?.hash}{" "}
-                    </span>
+                    <span style={{ maxWidth: "70vw" }}> {MintData?.hash} </span>
                   </a>
                 </div>
               </div>

@@ -1,0 +1,10 @@
+.waitingText{
+    color:white;
+    font-size:100px;
+}
+
+@media screen and (max-width: 479px) {
+.waitingText{
+    color:white;
+    font-size:30px;
+}}
