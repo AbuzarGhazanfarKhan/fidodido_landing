@@ -20,6 +20,7 @@ import abi from "../../abi/erc721.json";
 import { ethers } from "ethers";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import loader from "../../assets/loader/loader.gif";
 
 function MintPage() {
   const [no_of_NFTs, set_no_of_NFTs] = useState(1);
@@ -121,7 +122,7 @@ function MintPage() {
     setPrivatePhase(phase);
     setTotalSupply(supply);
     // console.log("phase", phase);
-    if (PrivatePhase) {
+    if (phase) {
       if (fetchWalletStatus()) {
         setPrice(ethers.parseEther((0.03 * no_of_NFTs).toString()));
       }
@@ -134,11 +135,16 @@ function MintPage() {
      setPrivatePhase(phase);
      console.log(phase);
   },[phase])
+  useEffect(()=>{
+     setTotalSupply(supply);
+     console.log(supply);
+  },[supply])
 
   const {
     data: MintData,
     isLoading: MintLoading,
     write,
+    isSuccess
   } = useContractWrite(config);
 
   useEffect(() => {
@@ -146,6 +152,12 @@ function MintPage() {
       setHash(MintData?.hash);
     }
   }, [MintData]);
+  useEffect(() => {
+
+console.log(MintLoading);
+console.log(isSuccess);
+
+  }, [MintLoading,isSuccess]);
 
   const Mint = async () => {
     setReload(true);
@@ -196,10 +208,11 @@ function MintPage() {
               STORED ON THE BLOCKCHAIN, DRAWING INSPIRATION FROM THE VIBRANT
               <b> 90S ERA</b>, COMPLETE WITH COOL <b>COMMERCIAL RIGHTS</b>
             </h3>
-            {isConnected && phase && (
-              <h4 style={{ color: "white", fontWeight: "lighter" }}>{`${
-                phase ? "Private Sale" : `Public Sale`
-              } `}</h4>
+            {isConnected && (
+              <h4 style={{ color: "white", fontWeight: "lighter" }}>
+                {phase == false && `Public Sale`}
+                {phase == true && "Private Phase"}
+              </h4>
             )}
             <div>
               <div
@@ -265,10 +278,15 @@ function MintPage() {
                         marginBlock: "25px",
                       }}
                       onClick={Mint}
+                      disabled={MintLoading ? true : false}
                     >
                       {" "}
                       {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-                      Mint
+                      {MintLoading ? (
+                        <img src={loader} width={"35px"} alt="" srcset="" />
+                      ) : (
+                        "Mint"
+                      )}
                     </Button>{" "}
                   </a>
                 )}
@@ -284,6 +302,7 @@ function MintPage() {
               </a>
               <a
                 href={`https://sepolia.etherscan.io/address/${contractAddress}`}
+                target="_blank"
               >
                 {" "}
                 <img hre src={etherscan} alt="X Logo" />{" "}
@@ -333,7 +352,7 @@ function MintPage() {
         </div>
         {showModal ? (
           <div className="modal">
-            <div className="modal-content">
+            <div className="modal-content-mint">
               <span
                 className="close"
                 onClick={() => {
@@ -343,7 +362,7 @@ function MintPage() {
                 X
               </span>
               <div className="modalSection">
-                <div className="right-section">
+                <div className="right-section-mint">
                   <center>
                     {" "}
                     <p> MINT IN PROGRESS PLEASE VIEW YOUR TRANSACTION HERE:</p>

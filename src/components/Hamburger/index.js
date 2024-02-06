@@ -43,119 +43,155 @@ const HamburgerMenu = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <IconButton onClick={toggleDrawer(false)} style={{ color: 'white',justifyContent:"start" }}>
+      <IconButton
+        onClick={toggleDrawer(false)}
+        style={{ color: "white", justifyContent: "start" }}
+      >
         <AiOutlineClose />
       </IconButton>
       <List>
-      <div>
-         <center>   <img width={"120px"} src={logo} alt="Logo" />{" "} </center>
-          </div>
-          <div >
+        <div>
+          <center>
             {" "}
-            <h2 style={{marginInline:"6px"}}>
-           <center>      ENTER MOON PHASE: 7777 <br /> COOL FIDOS </center>
-            </h2>{" "}
+            <img width={"120px"} src={logo} alt="Logo" />{" "}
+          </center>
+        </div>
+        <div>
+          {" "}
+          <h2 style={{ marginInline: "6px" }}>
+            <center>
+              {" "}
+              ENTER MOON PHASE: 7777 <br /> COOL FIDOS{" "}
+            </center>
+          </h2>{" "}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBlock: "30px",
+            //   gap: "49px",
+            //   marginInline: "28px",
+          }}
+        >
+          <div>
+            {" "}
+            <div
+              style={{ width: "100%", marginBottom: "5px", color: "white" }}
+              onClick={() => navigate("/mint")}
+            >
+              {" "}
+              <CountdownTimer onFinish={handleCountdownFinish} />
+            </div>{" "}
           </div>
-   
+          <div>
+            {" "}
+            <div
+              style={{ width: "100%", marginBottom: "5px", color: "white" }}
+              onClick={clickPopup}
+            >
+              {" "}
+              JOIN THE CLUB{" "}
+            </div>{" "}
+          </div>
+          <div>
+            {" "}
+            <div
+              style={{ width: "100%", marginBottom: "5px", color: "white" }}
+              onClick={() => navigate("/walletChecker")}
+            >
+              {" "}
+              Wallet Checker{" "}
+            </div>{" "}
+          </div>
+          <div>
+            {" "}
+            <a
+              href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              {" "}
+              <div
+                style={{
+                  width: "100%",
+                  marginBottom: "5px",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                {" "}
+                FAQ{" "}
+              </div>
+            </a>
+          </div>
+        </div>
+        <center>
+          {" "}
           <div
             style={{
               display: "flex",
-             flexDirection: "column",
-             alignItems:"center",
-             marginBlock:"30px"
-            //   gap: "49px",
-            //   marginInline: "28px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
             }}
           >
-            <div>
-              {" "}
-              <div 
-                style={{width:"100%",marginBottom:"5px",color:"white"}} 
-                onClick={()=> navigate('/mint')}
-              >
-                {" "}
-            <CountdownTimer onFinish={handleCountdownFinish}/>
-              </div>{" "}
-            </div>
-            <div>
-              {" "}
-              <div style={{width:"100%",marginBottom:"5px",color:"white"}} onClick={clickPopup}>
-                {" "}
-                JOIN THE CLUB{" "}
-              </div>{" "}
-            </div>
-            <div>
-              {" "}
-              <div style={{width:"100%",marginBottom:"5px",color:"white"}} onClick={()=> navigate('/walletChecker')}>
-                {" "}
-                Wallet Checker{" "}
-              </div>{" "}
-            </div>
-            <div>
-              {" "}
-              <a
-                href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/9c8Z2FmlcM3Jey1LpSVbQliQJ6Q73_L8JzdIXyJOLyQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{textDecoration:"none"}}
-              >
-                {" "}
-                <div style={{width:"100%",marginBottom:"5px",color:"white",textDecoration:"none"}} >  FAQs </div>
-              </a>
-            </div>
-          </div>
-          <center> <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"10px"}}>
-            
-            <div style={{display:"flex",justifyContent:"center"}}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               {" "}
               <a
                 href="https://twitter.com/0xfidodido"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {" "} 
+                {" "}
                 <img
                   src={x_logo}
                   className="icon"
                   style={{ width: "28px" }}
                   alt="x_logo"
-                /> 
-              </a>{" "} 
+                />
+              </a>{" "}
             </div>
             <div>
-            <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank" rel="noopener noreferrer">
-              <img
-                src={opensea}
-                className="icon"
-                style={{ width: "30px" }}
-                alt="x_logo"
-              />
+              <a
+                href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={opensea}
+                  className="icon"
+                  style={{ width: "30px" }}
+                  alt="x_logo"
+                />
               </a>
             </div>
             <div>
-            <a
+              <a
                 href="https://discord.gg/f3xTsPnsqN"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-              <img
-                src={discord_logo}
-                className="icon"
-                style={{ width: "38px"}}
-                alt="discord_logo"
-              />
+                <img
+                  src={discord_logo}
+                  className="icon"
+                  style={{ width: "38px" }}
+                  alt="discord_logo"
+                />
               </a>
             </div>
-            
           </div>
-         <div style={{fontSize:"10px",color:"gray"}}>
-          <br />
-           <b> TERMS OF USE</b>
-          <br />
-         
-          <b>  IP RIGHTS</b>
+          <div style={{ fontSize: "10px", color: "#b1b1b1" }}>
+            <br />
+            <b> TERMS OF USE</b>
+            <br />
+
+            <b> IP RIGHTS</b>
           </div>
-          </center>
+        </center>
       </List>
     </div>
   );

@@ -90,7 +90,7 @@ function Foorter() {
                 target="_blank"
               >
                 {" "}
-                <Button>  FAQs </Button>{" "}
+                <Button>  FAQ </Button>{" "}
               </a>
             </div>
           </div>

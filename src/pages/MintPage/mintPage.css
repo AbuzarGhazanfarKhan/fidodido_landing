@@ -125,7 +125,7 @@
     background: #ffffff8c;
    }
    
-   .modal-content {
+   .modal-content-mint {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -151,7 +151,7 @@
     width: 50%;
    } */
    
-   .right-section {
+   .right-section-mint {
     font-family: 'Poppins', sans-serif;
     flex: 1;
     color: white;
@@ -249,7 +249,7 @@ padding-inline: 6px;
         height: 75vw;
         font-size: 15px;
      }
-       .modal-content .modalSection .right-section p{
+       .modal-content .modalSection .right-section-mint p{
        
         font-size: 15px;
      }
