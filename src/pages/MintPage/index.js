@@ -15,7 +15,9 @@ import {
   useContractRead,
   usePrepareContractWrite,
   useAccount,
+  useWaitForTransaction,
 } from "wagmi";
+
 import abi from "../../abi/erc721.json";
 import { ethers } from "ethers";
 import Button from "react-bootstrap/Button";
@@ -56,6 +58,7 @@ function MintPage() {
     isError: supplyError,
     isLoading: supplyLoading,
     refetch: SupplyRefetch,
+    status:MintStatus
   } = useContractRead({
     address: contractAddress,
     abi,
@@ -72,10 +75,10 @@ function MintPage() {
     value: price,
   });
 
-  const txHash = config?.data;
+
 
   useEffect(() => {
-    // console.log("1");
+    console.log("1", contractAddress);
     refetch();
   }, [showModal, no_of_NFTs, address, reload, phase]);
 
@@ -105,10 +108,11 @@ function MintPage() {
   const fetchWalletStatus = async () => {
     try {
       const response = await axios.get(
-        `https://qr-code-api.oasisx.world/check-wallet/${address}`
+        `https://qr-code-api.oasisx.world/check-page/${address}`
       );
       if (response.data.status === "Success") {
         setProof(response.data.data.proof);
+        console.log(proof);
         return true;
       } else {
         return false;
@@ -121,6 +125,7 @@ function MintPage() {
   useEffect(() => {
     setPrivatePhase(phase);
     setTotalSupply(supply);
+    console.log("address",address);
     // console.log("phase", phase);
     if (phase) {
       if (fetchWalletStatus()) {
@@ -140,22 +145,34 @@ function MintPage() {
      console.log(supply);
   },[supply])
 
+
   const {
     data: MintData,
     isLoading: MintLoading,
     write,
     isSuccess
   } = useContractWrite(config);
+  const {
+    data: txReceipt,
+    error: txError,
+    isLoading: txLoading,
+  } = useWaitForTransaction({ hash: MintData });
 
+      useEffect(() => {
+        //  setTotalSupply(supply);
+        console.log("isConfirming", txLoading);
+        console.log("isConfirmed", txReceipt);
+      }, [MintStatus, MintData,MintLoading, showModal, no_of_NFTs, address, reload, phase]);
   useEffect(() => {
     if (MintData && MintData?.hash) {
       setHash(MintData?.hash);
+      console.log("Mint data",MintData);
     }
   }, [MintData]);
   useEffect(() => {
 
-console.log(MintLoading);
-console.log(isSuccess);
+console.log("MintLoad",MintLoading);
+console.log("MintSuccess", isSuccess);
 
   }, [MintLoading,isSuccess]);
 
@@ -282,7 +299,7 @@ console.log(isSuccess);
                     >
                       {" "}
                       {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-                      {MintLoading ? (
+                      {MintLoading || txLoading ? (
                         <img src={loader} width={"35px"} alt="" srcset="" />
                       ) : (
                         "Mint"
