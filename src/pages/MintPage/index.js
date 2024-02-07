@@ -52,6 +52,18 @@ function MintPage() {
     args: [],
     watch: true,
   });
+  const {
+    data: pause,
+    isError: pauseError,
+    isLoading: pauseLoading,
+    refetch: pauseRefetch,
+  } = useContractRead({
+    address: contractAddress,
+    abi,
+    functionName: "_pause",
+    args: [],
+    watch: true,
+  });
 
   const {
     data: supply,
@@ -140,6 +152,20 @@ function MintPage() {
      setPrivatePhase(phase);
      console.log(phase);
   },[phase])
+
+  useEffect(() => {
+    // setPrivatePhase(phase);
+    pauseRefetch();
+    console.log("paused", pause);
+  }, [
+    pause,
+    showModal,
+    
+    no_of_NFTs,
+    address,
+    reload,
+    phase,
+  ]);
   useEffect(()=>{
      setTotalSupply(supply);
      console.log(supply);
@@ -302,7 +328,7 @@ console.log("MintSuccess", isSuccess);
                       {MintLoading || txLoading ? (
                         <img src={loader} width={"35px"} alt="" srcset="" />
                       ) : (
-                        "Mint"
+                        pause  ?"Mint is paused momentarily" :"Mint"
                       )}
                     </Button>{" "}
                   </a>

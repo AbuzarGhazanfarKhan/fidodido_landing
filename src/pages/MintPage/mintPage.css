@@ -245,11 +245,11 @@ padding-inline: 6px;
         margin-top: 50px;
         height: 74px;
      }
-       .modal-content{
+       .modal-content-mint {
         height: 75vw;
         font-size: 15px;
      }
-       .modal-content .modalSection .right-section-mint p{
+       .modal-content-mint  .modalSection .right-section-mint p{
        
         font-size: 15px;
      }
