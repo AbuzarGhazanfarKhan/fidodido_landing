@@ -16,6 +16,7 @@ import {
   usePrepareContractWrite,
   useAccount,
   useWaitForTransaction,
+
 } from "wagmi";
 
 import abi from "../../abi/erc721.json";
@@ -23,6 +24,7 @@ import { ethers } from "ethers";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import loader from "../../assets/loader/loader.gif";
+
 
 function MintPage() {
   const [no_of_NFTs, set_no_of_NFTs] = useState(1);
@@ -39,7 +41,9 @@ function MintPage() {
   const handleButtonClick = (value) => {
     set_no_of_NFTs(value);
   };
-
+// const client = new Client({
+//   providerUrl: "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID", // Replace with your Infura project ID
+// });
   const {
     data: phase,
     isError: phaseError,
@@ -76,7 +80,8 @@ function MintPage() {
     abi,
     functionName: "totalSupply",
     args: [],
-    watch: true, // optional
+    watch: true,
+     // optional
   });
 
   const { config, error, refetch } = usePrepareContractWrite({
@@ -90,7 +95,7 @@ function MintPage() {
 
 
   useEffect(() => {
-    console.log("1", contractAddress);
+    // console.log("1", contractAddress);
     refetch();
   }, [showModal, no_of_NFTs, address, reload, phase]);
 
@@ -124,7 +129,7 @@ function MintPage() {
       );
       if (response.data.status === "Success") {
         setProof(response.data.data.proof);
-        console.log(proof);
+        // console.log(proof);
         return true;
       } else {
         return false;
@@ -137,7 +142,7 @@ function MintPage() {
   useEffect(() => {
     setPrivatePhase(phase);
     setTotalSupply(supply);
-    console.log("address",address);
+    // console.log("address",address);
     // console.log("phase", phase);
     if (phase) {
       if (fetchWalletStatus()) {
@@ -150,13 +155,13 @@ function MintPage() {
 
   useEffect(()=>{
      setPrivatePhase(phase);
-     console.log(phase);
+    //  console.log(phase);
   },[phase])
 
   useEffect(() => {
     // setPrivatePhase(phase);
     pauseRefetch();
-    console.log("paused", pause);
+    // console.log("paused", pause);
   }, [
     pause,
     showModal,
@@ -168,7 +173,7 @@ function MintPage() {
   ]);
   useEffect(()=>{
      setTotalSupply(supply);
-     console.log(supply);
+    //  console.log(supply);
   },[supply])
 
 
@@ -176,31 +181,46 @@ function MintPage() {
     data: MintData,
     isLoading: MintLoading,
     write,
-    isSuccess
+    isSuccess,
+   
   } = useContractWrite(config);
   const {
     data: txReceipt,
     error: txError,
     isLoading: txLoading,
+    refetch:txRefetch
   } = useWaitForTransaction({ hash: MintData });
 
       useEffect(() => {
+        setReload(true)
         //  setTotalSupply(supply);
+        txRefetch()
         console.log("isConfirming", txLoading);
-        console.log("isConfirmed", txReceipt);
-      }, [MintStatus, MintData,MintLoading, showModal, no_of_NFTs, address, reload, phase]);
+        // console.log("isConfirmed", txReceipt);
+      }, [
+        MintStatus,
+        MintData,
+        MintLoading,
+        showModal,
+        no_of_NFTs,
+        address,
+        reload,
+        phase,
+        txLoading,
+        txReceipt,
+      ]);
   useEffect(() => {
     if (MintData && MintData?.hash) {
       setHash(MintData?.hash);
-      console.log("Mint data",MintData);
+      // console.log("Mint data",MintData);
     }
   }, [MintData]);
   useEffect(() => {
-
+setReload(true);
 console.log("MintLoad",MintLoading);
 console.log("MintSuccess", isSuccess);
 
-  }, [MintLoading,isSuccess]);
+  }, [MintLoading,isSuccess,reload]);
 
   const Mint = async () => {
     setReload(true);
@@ -321,14 +341,18 @@ console.log("MintSuccess", isSuccess);
                         marginBlock: "25px",
                       }}
                       onClick={Mint}
-                      disabled={MintLoading ? true : false}
+                      disabled={
+                        MintLoading || pause || txLoading ? true : false
+                      }
                     >
                       {" "}
                       {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
                       {MintLoading || txLoading ? (
                         <img src={loader} width={"35px"} alt="" srcset="" />
+                      ) : pause ? (
+                        "Minting is paused momentarily"
                       ) : (
-                        pause  ?"Mint is paused momentarily" :"Mint"
+                        "Mint"
                       )}
                     </Button>{" "}
                   </a>
@@ -359,7 +383,7 @@ console.log("MintSuccess", isSuccess);
             {" "}
             <h1 style={{ letterSpacing: "2px", fontSize: "35px" }}>
               {" "}
-              {supply?.toString()}/7777
+              {supply?.toString() }/7777
             </h1>
           </center>
           <center>
@@ -417,7 +441,18 @@ console.log("MintSuccess", isSuccess);
                     target="_blank"
                   >
                     {" "}
-                    <span style={{ maxWidth: "70vw" }}> {MintData?.hash} </span>
+                    <span
+                      style={{ maxWidth: "70vw", textDecoration: "underline" }}
+                    >
+                      {" "}
+                      {MintData?.hash}{" "}
+                    </span>
+                    {/* {MintLoading && (
+                      <center>
+                        {" "}
+                        <img src={loader} width={"35px"} alt="" />{" "}
+                      </center>
+                    )} */}
                   </a>
                 </div>
               </div>

@@ -128,7 +128,7 @@
   .submitButton {
       position: absolute;
       top: 110%;
-      right: -3%; /* Adjust as needed */
+      right: -1.5%; /* Adjust as needed */
       transform: translateY(-50%);
       transition: all 1.5s;
   }
