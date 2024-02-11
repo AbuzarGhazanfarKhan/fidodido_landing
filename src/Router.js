@@ -1,7 +1,7 @@
 import {  Route,Routes } from "react-router-dom";
 import MainPage from './pages/MainPage'
 import WalletChecker from './pages/WalletChecker'
-import MintWrapper from "./pages/MintWrapper";
+import MintPage from "./pages/MintPage";
 
 export const Router= ()=>{
 return (
@@ -9,7 +9,7 @@ return (
         <Routes>
             <Route path='/' element={ <MainPage/>} /> 
             <Route path='/walletChecker' element={<WalletChecker/>} /> 
-            <Route path='/mint' element={<MintWrapper/>} />  
+            <Route path='/mint' element={<MintPage/>} />  
         </Routes>
 
 )

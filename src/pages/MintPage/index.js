@@ -188,14 +188,14 @@ function MintPage() {
     data: txReceipt,
     error: txError,
     isLoading: txLoading,
-    refetch:txRefetch
+    
   } = useWaitForTransaction({ hash: MintData });
 
       useEffect(() => {
         setReload(true)
         //  setTotalSupply(supply);
-        txRefetch()
-        console.log("isConfirming", txLoading);
+        refetch()
+        console.log("txLoading", txLoading);
         // console.log("isConfirmed", txReceipt);
       }, [
         MintStatus,
@@ -216,17 +216,19 @@ function MintPage() {
     }
   }, [MintData]);
   useEffect(() => {
-setReload(true);
-console.log("MintLoad",MintLoading);
-console.log("MintSuccess", isSuccess);
-
-  }, [MintLoading,isSuccess,reload]);
+    setReload(true);
+    console.log("MintLoad", MintLoading);
+    console.log("MintSuccess", isSuccess);
+    refetch();
+  }, [MintLoading, isSuccess, reload, txReceipt, pause]);
 
   const Mint = async () => {
     setReload(true);
     if (error) {
       if (error.message.includes("Mint limit reached")) {
-        alert("Your Mint limit has been reached. Please try again later");
+        alert(
+          "Your Wallet is not in the whitelist. Please mint in the Public Phase"
+        );
       } else if (
         error.details &&
         error.details.startsWith("err: insufficient funds for gas * price ")
@@ -342,12 +344,12 @@ console.log("MintSuccess", isSuccess);
                       }}
                       onClick={Mint}
                       disabled={
-                        MintLoading || pause || txLoading ? true : false
+                         pause || txLoading ? true : false
                       }
                     >
                       {" "}
                       {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-                      {MintLoading || txLoading ? (
+                      { txLoading ? (
                         <img src={loader} width={"35px"} alt="" srcset="" />
                       ) : pause ? (
                         "Minting is paused momentarily"
