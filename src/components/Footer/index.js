@@ -43,122 +43,139 @@ function Foorter() {
   let navigate = useNavigate();
   return (
     <>
-    
-    {!isMobile  && <center>
-        {" "}
-        <div className="footer">
-          <div>
-            <img className="logo" src={logo} alt="Logo" />{" "}
-          </div>
-          <div className="text" >
-            {" "}
-            <h2>
-            ENTER MOON PHASE : 7777 <br /> COOL FIDOS
-            </h2>{" "}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: isTablet?"9px": "49px",
-              marginInline:isTablet?"9px": "28px",
-            }}
-          >
+      {!isMobile && (
+        <center>
+          {" "}
+          <div className="footer">
             <div>
-              {" "}
-             <a > <Button onClick={()=> navigate('/mint')} className=" rotate-button journey"
-                style={{ backgroundColor: "rgb(23, 152, 23)", color: "white",cursor:"pointer" }}
-                disabled={isButtonDisabled}
-              >
-                {" "}
-                {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-             <Countdown onFinish={handleCountdownFinish}/>
-              </Button>{" "}
-              </a>
+              <img className="logo" src={logo} alt="Logo" />{" "}
             </div>
-            <div>
+            <div className="text">
               {" "}
-              <a  href="https://discord.com/invite/f3xTsPnsqN"   target="_blank">   <Button >
-                {" "}
-                <span>JOIN THE CLUB</span>{" "}
-              </Button>{" "} </a>
+              <h2>
+                ENTER MOON PHASE : 7777 <br /> COOL FIDOS
+              </h2>{" "}
             </div>
-            <div>
-              {" "}
-              <a
-                href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/MXtr_zP0GX-l94OZRQQ5J-E-_Ua7foYwaX-oyCB97tU"
-                target="_blank"
-              >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: isTablet ? "9px" : "49px",
+                marginInline: isTablet ? "9px" : "28px",
+              }}
+            >
+              <div>
                 {" "}
-                <Button>  FAQ </Button>{" "}
-              </a>
+                <a>
+                  {" "}
+                  <Button
+                    onClick={() => navigate("/mint")}
+                    className=" rotate-button journey"
+                    style={{
+                      backgroundColor: "rgb(23, 152, 23)",
+                      color: "white",
+                      cursor: "pointer",
+                    }}
+                    disabled={isButtonDisabled}
+                  >
+                    {" "}
+                    {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
+                    <Countdown onFinish={handleCountdownFinish} />
+                  </Button>{" "}
+                </a>
+              </div>
+              <div>
+                {" "}
+                <a href="https://discord.com/invite/f3xTsPnsqN" target="_blank">
+                  {" "}
+                  <Button>
+                    {" "}
+                    <span>JOIN THE CLUB</span>{" "}
+                  </Button>{" "}
+                </a>
+              </div>
+              <div>
+                {" "}
+                <a
+                  href="https://mirror.xyz/0xbeb122E9f83cd44099D51c77a312AcF2357Ac5e0/MXtr_zP0GX-l94OZRQQ5J-E-_Ua7foYwaX-oyCB97tU"
+                  target="_blank"
+                >
+                  {" "}
+                  <Button> FAQ </Button>{" "}
+                </a>
+              </div>
             </div>
-          </div>
-          <div style={{marginLeft: "15px"}}>
+            <div style={{ marginLeft: "15px" }}>
               {" "}
-              <Button  onClick={()=>navigate("/walletChecker")}>
+              <Button onClick={() => navigate("/walletChecker")}>
                 {" "}
                 <span>Wallet Checker</span>{" "}
               </Button>{" "}
             </div>
-        
-        </div>
-        <hr />
-        <div className="terms">
-          <p>
-           <b> TERMS OF USE</b>
-          </p>
-          <p>
-          <b>  IP RIGHTS</b>
-          </p>
-                 <div style={{ display: "flex", flexDirection: "row", gap: "7px",alignItems:"center" }}>
-            <div>
-              <a href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items" target="_blank">
-              <img
-                src={opensea}
-                className="icon"
-                style={{ width: "38px" }}
-                alt="x_logo"
-              />
-              </a>
-            </div>
-            <div>
-              {" "}
-              <a
-                href="https://twitter.com/0xfidodido"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+          </div>
+          <hr />
+          <div className="terms">
+            <p style={{cursor:"pointer"}} onClick={() => navigate("/terms")}>
+              <b> TERMS OF USE</b>
+            </p>
+            <p style={{cursor:"pointer"}} onClick={() => navigate("/ip-rights")}>
+              <b> IP RIGHTS</b>
+            </p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "7px",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <a
+                  href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items"
+                  target="_blank"
+                >
+                  <img
+                    src={opensea}
+                    className="icon"
+                    style={{ width: "38px" }}
+                    alt="x_logo"
+                  />
+                </a>
+              </div>
+              <div>
                 {" "}
-                <img
-                  src={x_logo}
-                  className="icon"
-                  style={{ width: "38px" }}
-                  alt="x_logo"
-                />
-              </a>{" "}
-            </div>
-            <div>
-            <a
-                href="https://discord.gg/f3xTsPnsqN"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-              <img
-                src={discord_logo}
-                className="icon"
-                style={{ width: "38px"}}
-                alt="discord_logo"
-              />
-              </a>
+                <a
+                  href="https://twitter.com/0xfidodido"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  <img
+                    src={x_logo}
+                    className="icon"
+                    style={{ width: "38px" }}
+                    alt="x_logo"
+                  />
+                </a>{" "}
+              </div>
+              <div>
+                <a
+                  href="https://discord.gg/f3xTsPnsqN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={discord_logo}
+                    className="icon"
+                    style={{ width: "38px" }}
+                    alt="discord_logo"
+                  />
+                </a>
+              </div>
             </div>
           </div>
-          </div>
- 
-      </center>}
-
-
-
+        </center>
+      )}
     </>
   );
 }

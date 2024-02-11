@@ -186,10 +186,16 @@ const HamburgerMenu = () => {
           </div>
           <div style={{ fontSize: "10px", color: "#b1b1b1" }}>
             <br />
-            <b> TERMS OF USE</b>
-            <br />
-
-            <b> IP RIGHTS</b>
+            <p style={{ cursor: "pointer" }} onClick={() => navigate("/terms")}>
+              <b> TERMS OF USE</b>
+            </p>
+           
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/ip-rights")}
+            >
+              <b> IP RIGHTS</b>
+            </p>
           </div>
         </center>
       </List>

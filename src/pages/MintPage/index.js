@@ -370,7 +370,7 @@ function MintPage() {
                 <img src={opensea} alt="X Logo" />{" "}
               </a>
               <a
-                href={`https://sepolia.etherscan.io/address/${contractAddress}`}
+                href={`https://etherscan.io/address/${contractAddress}`}
                 target="_blank"
               >
                 {" "}
@@ -439,7 +439,7 @@ function MintPage() {
                   <a
                     className="transaction"
                     style={{ color: "#009016", textDecoration: "none" }}
-                    href={`https://sepolia.etherscan.io/tx/${MintData?.hash}`}
+                    href={`https://etherscan.io/tx/${MintData?.hash}`}
                     target="_blank"
                   >
                     {" "}
