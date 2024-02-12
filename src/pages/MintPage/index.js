@@ -35,6 +35,7 @@ function MintPage() {
   const [proof, setProof] = useState([]);
   const [showModal, setShowsModal] = useState(false);
   const [contractAddress, setContractAddress] = useState(false);
+  const [OpenseaLink, setOpenseaLink] = useState('');
   const { isConnected, address } = useAccount();
   const [reload, setReload] = useState(false);
 
@@ -107,6 +108,7 @@ function MintPage() {
 
   useEffect(() => {
     getContract();
+    getOpensea();
     // console.log("contractAddress", contractAddress);
   }, []);
 
@@ -121,6 +123,17 @@ function MintPage() {
       console.error(`Error fetching wallet status: ${error}`);
     }
   };
+  const getOpensea = async () => {
+    try {
+      const response = await axios.get(
+        `https://qr-code-api.oasisx.world/opensea`
+      );
+console.log('opensea',OpenseaLink);
+      setOpenseaLink(response.data?.data?.toString());
+    } catch (error) {
+      console.error(`Error fetching wallet status: ${error}`);
+    }
+  };
 
   const fetchWalletStatus = async () => {
     try {
@@ -129,7 +142,8 @@ function MintPage() {
       );
       if (response.data.status === "Success") {
         setProof(response.data.data.proof);
-        // console.log(proof);
+        console.log(proof);
+        console.log(address);
         return true;
       } else {
         return false;
@@ -343,13 +357,11 @@ function MintPage() {
                         marginBlock: "25px",
                       }}
                       onClick={Mint}
-                      disabled={
-                         pause || txLoading ? true : false
-                      }
+                      disabled={pause || txLoading ? true : false}
                     >
                       {" "}
                       {/* <Countdown date={new Date('2023-12-07T19:00:00')} renderer={renderer({daysInHours})} />{" "} */}
-                      { txLoading ? (
+                      {txLoading ? (
                         <img src={loader} width={"35px"} alt="" srcset="" />
                       ) : pause ? (
                         "Minting is paused momentarily"
@@ -363,14 +375,18 @@ function MintPage() {
             </div>
             <div className="mintIcons" style={{}}>
               <a
-                href="https://opensea.io/collection/fido-dido-genesis-cards?tab=items"
+                href={OpenseaLink}
                 target="_blank"
+                style={{
+                  cursor: OpenseaLink === "" ? "not-allowed" : "pointer",
+                }}
+                disabled={OpenseaLink === "" ? true : false}
               >
                 {" "}
                 <img src={opensea} alt="X Logo" />{" "}
               </a>
               <a
-                href={`https://etherscan.io/address/${contractAddress}`}
+                href={`https://etherscan.io/address/0xCfF8cc417dD268A3431F97933Cd45Bee3e5fE3ee`}
                 target="_blank"
               >
                 {" "}
@@ -385,7 +401,7 @@ function MintPage() {
             {" "}
             <h1 style={{ letterSpacing: "2px", fontSize: "35px" }}>
               {" "}
-              {supply?.toString() }/7777
+              {supply?.toString()}/7777
             </h1>
           </center>
           <center>

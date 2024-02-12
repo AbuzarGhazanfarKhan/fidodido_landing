@@ -6,17 +6,14 @@ function IPRights() {
     <>
       <center>
         <div style={{ color: "white" }}>
-          <h1 className = "heading" >
-            {" "}
-            INTELLECTUAL PROPERTY RIGHTS
-          </h1>
+          <h1 className="heading"> INTELLECTUAL PROPERTY RIGHTS</h1>
           <h2> LAST UPDATED: JANUARY 2024 </h2>
           <h2>FIDOLABS IP RIGHTS-V.1</h2>{" "}
           <p className="small">
             <b>LAST UPDATED:</b> JANUARY 2024
           </p>{" "}
         </div>
-        <div className="container">
+        <div className="container-rights">
           <div>
             <h2>1. DEFINITIONS</h2>{" "}
             <p>

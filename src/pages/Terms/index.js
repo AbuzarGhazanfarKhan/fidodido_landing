@@ -5,9 +5,9 @@ function TermsAndCondition() {
   return (
     <>
       <center>
-        <div className="container">
+        <div className="container-rights">
           <div>
-            <h2 style={{ fontSize: "30px",textAlign:"center" }}>
+            <h2 style={{ fontSize: "30px", textAlign: "center" }}>
               FIDO DIDO WEBSITE TERMS AND CONDITIONS
             </h2>
 
@@ -620,7 +620,7 @@ function TermsAndCondition() {
               USER-TO-USER COMPLAINT PROCESS APPLIES AS DESCRIBED BELOW), YOU
               MAY SUBMIT A NOTIFICATION PURSUANT TO THE DIGITAL MILLENNIUM
               COPYRIGHT ACT ("DMCA") BY CONTACTING OUR COPYRIGHT AGENT AT{" "}
-              <span style={{color:"red"}}>[EMAIL PROTECTED]</span> OR TO THE
+              <span style={{ color: "red" }}>[EMAIL PROTECTED]</span> OR TO THE
               ADDRESS PROVIDED IN ARTICLE 12, ATTENTION DMCA AGENT.
             </p>
 
