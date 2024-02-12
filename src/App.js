@@ -10,15 +10,18 @@ import { useLocation } from 'react-router-dom';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { mainnet,sepolia } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
+// import { publicProvider } from 'wagmi/providers/public';
 import {jsonRpcProvider} from "wagmi/providers/jsonRpc"
 
 const { chains, publicClient } = configureChains(
   [mainnet, sepolia],
   [
-    alchemyProvider({ apiKey: "HRgjxWnQOiW-LBzh16pivmZkFaeeU_kl" }),
-    jsonRpcProvider({ rpc: () => ({ http: "https://eth-sepolia.g.alchemy.com/v2/HRgjxWnQOiW-LBzh16pivmZkFaeeU_kl" }) }),
-    publicProvider()
+    alchemyProvider({ apiKey: "hV8jO5bqrue-Nw4f_mOCBGki9kF8AmZJ" }),
+    jsonRpcProvider({
+      rpc: () => ({
+        http: "https://eth-mainnet.g.alchemy.com/v2/hV8jO5bqrue-Nw4f_mOCBGki9kF8AmZJ",
+      }),
+    }),
   ]
 );
 

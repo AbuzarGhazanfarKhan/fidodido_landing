@@ -4,7 +4,8 @@ import WalletChecker from './pages/WalletChecker'
 import MintPage from "./pages/MintPage";
 // import MintWrapper from "./pages/MintWrapper";
 import IPRights from "./pages/IPRights"
-import Terms from "./pages/Terms"
+import Terms from "./pages/TermsNew"
+import Policy from "./pages/Policy"
 
 export const Router= ()=>{
 return (
@@ -14,6 +15,7 @@ return (
     <Route path="/mint" element={<MintPage />} />
     <Route path="/ip-rights" element={<IPRights />} />
     <Route path="/terms" element={<Terms />} />
+    <Route path="/policy" element={<Policy />} />
   </Routes>
 );
 }

@@ -189,12 +189,18 @@ const HamburgerMenu = () => {
             <p style={{ cursor: "pointer" }} onClick={() => navigate("/terms")}>
               <b> TERMS OF USE</b>
             </p>
-           
+
             <p
               style={{ cursor: "pointer" }}
               onClick={() => navigate("/ip-rights")}
             >
               <b> IP RIGHTS</b>
+            </p>
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/policy")}
+            >
+              <b> PRIVACY POLICY </b>
             </p>
           </div>
         </center>

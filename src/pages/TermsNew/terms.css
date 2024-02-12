@@ -1,0 +1,114 @@
+.coaintainer-terms{
+max-width: 70vw;
+text-align: left;
+}
+
+.coaintainer-terms h2,
+.coaintainer-terms h3,
+.coaintainer-terms h4,
+.coaintainer-terms p {
+    margin: 0pt 0pt 8pt
+}
+
+.coaintainer-terms li {
+    margin-top: 0pt;
+    margin-bottom: 8pt
+}
+
+.coaintainer-terms h2 {
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    page-break-inside: auto;
+    page-break-after: auto;
+    line-height: normal;
+    font-family: 'Times New Roman';
+    font-size: 18pt;
+    font-weight: bold;
+    color: #000000
+}
+
+.coaintainer-terms h3 {
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    page-break-inside: auto;
+    page-break-after: auto;
+    line-height: normal;
+    font-family: 'Times New Roman';
+    font-size: 13.5pt;
+    font-weight: bold;
+    color: #000000
+}
+
+.coaintainer-terms h4 {
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    page-break-inside: auto;
+    page-break-after: auto;
+    line-height: normal;
+    font-family: 'Times New Roman';
+    font-size: 12pt;
+    font-weight: bold;
+    font-style: normal;
+    color: #000000
+}
+
+.coaintainer-terms .Footer {
+    margin-bottom: 0pt;
+    line-height: normal;
+    font-size: 11pt
+}
+
+.coaintainer-terms .Header {
+    margin-bottom: 0pt;
+    line-height: normal;
+    font-size: 11pt
+}
+
+.coaintainer-terms .ListParagraph {
+    margin-left: 36pt;
+    margin-bottom: 8pt;
+    line-height: 108%;
+    font-size: 11pt
+}
+
+.coaintainer-terms .NormalWeb {
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    line-height: normal;
+    font-family: 'Times New Roman';
+    font-size: 12pt
+}
+
+.coaintainer-terms span.Heading2Char {
+    font-family: 'Times New Roman';
+    font-size: 18pt;
+    font-weight: bold
+}
+
+.coaintainer-terms span.Heading3Char {
+    font-family: 'Times New Roman';
+    font-size: 13.5pt;
+    font-weight: bold
+}
+
+.coaintainer-terms span.Heading4Char {
+    font-family: 'Times New Roman';
+    font-size: 12pt;
+    font-weight: bold
+}
+
+.coaintainer-terms span.Hyperlink {
+    text-decoration: underline;
+    color: #0000ff
+}
+
+.coaintainer-terms span.Strong {
+    font-weight: bold
+}
+
+@media (max-width:820px) {
+.coaintainer-terms{
+    max-width: 85vw;
+}
+
+}
